@@ -22,7 +22,5 @@ public interface EquipeRepository extends JpaRepository<Equipe, Integer> {
             + "and equipe.niveau =:niveau")
     List<Equipe> retriveEquipeByNiveauAndThematique(Niveau niveau, String thematique);
 
-    @Modifying
-    @Query("DELETE from Equipe e where e.niveau=:niveau")
-    void deleteEquipeByNiveau(Niveau niveau);
+
 }

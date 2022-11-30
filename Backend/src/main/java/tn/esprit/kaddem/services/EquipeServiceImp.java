@@ -65,8 +65,5 @@ public class EquipeServiceImp implements IEquipeServices {
         return equipeRepository.retriveEquipeByNiveauAndThematique(niveau, thematique);
     }
 
-    @Override
-    public void deleteEquipeByNiveau(Niveau niveau) {
-        equipeRepository.deleteEquipeByNiveau(niveau);
-    }
+
 }

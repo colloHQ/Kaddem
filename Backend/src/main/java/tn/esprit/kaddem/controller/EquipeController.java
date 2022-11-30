@@ -66,8 +66,5 @@ public class EquipeController {
         return equipeServices.retriveEquipeByNiveauAndThematique(niveau, thematique);
     }
 
-    @DeleteMapping("/deleteByNiveau/{niveau}")
-    public void deleteEquipeByNiveau(@PathVariable ("niveau") Niveau niveau) {
-        equipeServices.deleteEquipeByNiveau(niveau);
-    }
+
 }
