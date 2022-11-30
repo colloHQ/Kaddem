@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 01:06 AM
+-- Generation Time: Nov 30, 2022 at 01:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,7 +42,7 @@ INSERT INTO `departement` (`id_departement`, `nom_departement`) VALUES
 
 INSERT INTO `detail_equipe` (`id_detail_equipe`, `salle`, `thematique`) VALUES
 (1, 3, 'IT'),
-(7, 3, NULL);
+(7, 3, 'TIC');
 
 --
 -- Dumping data for table `equipe`
@@ -50,7 +50,7 @@ INSERT INTO `detail_equipe` (`id_detail_equipe`, `salle`, `thematique`) VALUES
 
 INSERT INTO `equipe` (`id_equipe`, `niveau`, `nom_equipe`, `detail_equipe_id_detail_equipe`) VALUES
 (1, 'EXPERT', 'newbies', 1),
-(3, 'JUNIOR', 'test', NULL);
+(3, 'JUNIOR', 'test', 7);
 
 --
 -- Dumping data for table `equipe_etudiants`
@@ -66,8 +66,8 @@ INSERT INTO `equipe_etudiants` (`equips_id_equipe`, `etudiants_id_etudiant`) VAL
 
 INSERT INTO `etudiant` (`id_etudiant`, `nom_etudiant`, `option`, `prenom_etudiant`, `departement_id_departement`) VALUES
 (1, 'test', 'TWIN', 'test', 1),
-(3, 'test', 'Gamix', 'test', NULL),
-(4, 'test', 'Gamix', 'test', NULL);
+(3, 'test', 'Gamix', 'test', 1),
+(4, 'test', 'Gamix', 'test', 1);
 
 --
 -- Dumping data for table `universite`
