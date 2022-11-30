@@ -538,6 +538,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "find by thematique",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/DetailEquipe/getByThematique/IT",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"DetailEquipe",
+								"getByThematique",
+								"IT"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -613,8 +633,11 @@
 				},
 				{
 					"name": "Update",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "PUT",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -626,14 +649,15 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8089/Equipe/update",
+							"raw": "localhost:8089/Equipe/findByThematique/IT",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
 								"Equipe",
-								"update"
+								"findByThematique",
+								"IT"
 							]
 						}
 					},
@@ -658,129 +682,9 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "xxx Copy 3",
-			"item": [
-				{
-					"name": "Add",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"archive\":false,\r\n    \"dateDebutContrat\":\"2022-05-01\",\r\n    \"dateFinContrat\":\"2022-06-01\",\r\n    \"specialite\":0\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8089/Contrat/add",
-							"host": [
-								"localhost"
-							],
-							"port": "8089",
-							"path": [
-								"Contrat",
-								"add"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "GetAll",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8089/Contrat/getAll",
-							"host": [
-								"localhost"
-							],
-							"port": "8089",
-							"path": [
-								"Contrat",
-								"getAll"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetById",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8089/Contrat/getById/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8089",
-							"path": [
-								"Contrat",
-								"getById",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idContrat\": 1,\r\n    \"archive\": true,\r\n    \"dateDebutContrat\": \"2012-12-12\",\r\n    \"dateFinContrat\": \"2022-12-01\",\r\n    \"specialite\": 3,\r\n    \"etudiant\": null\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8089/Contrat/update",
-							"host": [
-								"localhost"
-							],
-							"port": "8089",
-							"path": [
-								"Contrat",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8089/Contrat/delete/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8089",
-							"path": [
-								"Contrat",
-								"delete",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "test",
+					"name": "find equipe by thematique",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -789,11 +693,93 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "find equipe by etudiant and departement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Equipe/findByEtudiantAndDepart/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Equipe",
+								"findByEtudiantAndDepart",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find equipe by idEtudiant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Equipe/findByEtudiant/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Equipe",
+								"findByEtudiant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find equipe by idEtudiant and tthematique not null",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Equipe/findByThematiqueNotNull/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Equipe",
+								"findByThematiqueNotNull",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find equipe by niveau et thematique",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Equipe/findByNiveauAndThematique/EXPERT/IT",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Equipe",
+								"findByNiveauAndThematique",
+								"EXPERT",
+								"IT"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "xxx Copy 4",
+			"name": "Departement",
 			"item": [
 				{
 					"name": "Add",
@@ -802,7 +788,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"archive\":false,\r\n    \"dateDebutContrat\":\"2022-05-01\",\r\n    \"dateFinContrat\":\"2022-06-01\",\r\n    \"specialite\":0\r\n}",
+							"raw": "{\r\n    \"nomDepartement\":\"TIC\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -810,13 +796,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8089/Contrat/add",
+							"raw": "localhost:8089/Departement/add",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
-								"Contrat",
+								"Departement",
 								"add"
 							]
 						}
@@ -829,13 +815,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8089/Contrat/getAll",
+							"raw": "localhost:8089/Departement/getAll",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
-								"Contrat",
+								"Departement",
 								"getAll"
 							]
 						}
@@ -848,15 +834,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8089/Contrat/getById/1",
+							"raw": "localhost:8089/Departement/getById/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
-								"Contrat",
+								"Departement",
 								"getById",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -869,7 +855,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idContrat\": 1,\r\n    \"archive\": true,\r\n    \"dateDebutContrat\": \"2012-12-12\",\r\n    \"dateFinContrat\": \"2022-12-01\",\r\n    \"specialite\": 3,\r\n    \"etudiant\": null\r\n}",
+							"raw": "{\r\n    \"idDepartement\": 2,\r\n    \"nomDepartement\": \"EM GC\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -877,13 +863,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8089/Contrat/update",
+							"raw": "localhost:8089/Departement/update",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
-								"Contrat",
+								"Departement",
 								"update"
 							]
 						}
@@ -896,14 +882,195 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8089/Contrat/delete/1",
+							"raw": "localhost:8089/Departement/delete/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
-								"Contrat",
+								"Departement",
 								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get departements by id universite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Departement/retrieveDepartementByUniversite/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Departement",
+								"retrieveDepartementByUniversite",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get departement by etudiantOption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Departement/getByEtudOpt/TWIN",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Departement",
+								"getByEtudOpt",
+								"TWIN"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Universite",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \r\n        \"nomUniversite\": \"TEKUP\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/Universite/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Universite",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Universite/getAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Universite",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Universite/getById/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Universite",
+								"getById",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUniversite\": 2,\r\n    \"nomUniversite\": \"SEASAME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/Universite/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Universite",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Universite/delete/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Universite",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign universite to departement",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/Universite/assignToDepartement/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"Universite",
+								"assignToDepartement",
+								"1",
 								"1"
 							]
 						}

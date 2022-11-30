@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 10:14 PM
+-- Generation Time: Nov 30, 2022 at 01:06 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -41,14 +41,16 @@ INSERT INTO `departement` (`id_departement`, `nom_departement`) VALUES
 --
 
 INSERT INTO `detail_equipe` (`id_detail_equipe`, `salle`, `thematique`) VALUES
-(1, 3, 'IT');
+(1, 3, 'IT'),
+(7, 3, NULL);
 
 --
 -- Dumping data for table `equipe`
 --
 
 INSERT INTO `equipe` (`id_equipe`, `niveau`, `nom_equipe`, `detail_equipe_id_detail_equipe`) VALUES
-(1, 'EXPERT', 'newbies', 1);
+(1, 'EXPERT', 'newbies', 1),
+(3, 'JUNIOR', 'test', NULL);
 
 --
 -- Dumping data for table `equipe_etudiants`
