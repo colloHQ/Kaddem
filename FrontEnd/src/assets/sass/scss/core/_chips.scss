@@ -1,0 +1,45 @@
+.chip {
+	display: inline-block;
+	height: 32px;
+	padding: 0 12px;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 32px;
+	color: rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	background-color: #f1f1f1;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 16px;
+	-webkit-transition: all .3s linear;
+	transition: all .3s linear;
+	box-shadow: none;
+  
+	img {
+	  float: left;
+	  width: 32px;
+	  height: 32px;
+	  margin: 0 8px 0 -12px;
+	  border-radius: 50%;
+	}
+  
+	.closebtn {
+	  padding-left: 10px;
+	  font-weight: 700;
+	  float: right;
+	  font-size: 16px;
+	  cursor: pointer;
+	}
+  
+	&.chip-md {
+	  height: 42px;
+	  line-height: 42px;
+	  border-radius: 21px;
+  
+	  img {
+		height: 42px;
+		width: 42px;
+	  }
+	}
+  }

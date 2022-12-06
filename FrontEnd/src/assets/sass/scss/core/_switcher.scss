@@ -1,0 +1,44 @@
+.switcher-wrapper {
+	width: 280px;
+	height: 100%;
+	position: fixed;
+	right: -280px;
+	top: 0;
+	bottom: 0;
+	z-index: 16;
+	background: #fff;
+	border-left: 0 solid #d2d2d2;
+	box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.13);
+	transition: all 0.2s ease-out;
+  }
+  
+  .switcher-btn {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
+	background: #0d6efd;
+	box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.13);
+	color: #fff;
+	text-align: center;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	position: absolute;
+	top: 40%;
+	right: 100%;
+	cursor: pointer;
+  }
+  
+  .switcher-wrapper.switcher-toggled {
+	right: 0;
+  }
+  
+  .switcher-body {
+	padding: 1.25rem;
+  
+	.form-check {
+	  .form-check-input, .form-check-label {
+		cursor: pointer;
+	  }
+	}
+  }

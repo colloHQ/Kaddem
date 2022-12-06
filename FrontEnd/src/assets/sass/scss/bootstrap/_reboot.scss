@@ -1,0 +1,120 @@
+body {
+	font-size: 14px;
+	color: #4c5258;
+	letter-spacing: .5px;
+	overflow-x: hidden;
+  }
+  
+  .wrapper {
+	width: 100%;
+	position: relative;
+  }
+  
+  .page-wrapper {
+	height: 100%;
+	margin-top: 60px;
+	margin-bottom: 30px;
+	margin-left: 250px;
+  }
+  
+  .page-content {
+	padding: 1.5rem;
+  }
+  
+  .page-footer {
+	background: #fff;
+	left: 250px;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	text-align: center;
+	padding: 7px;
+	font-size: 14px;
+	border-top: 1px solid #e4e4e4;
+	z-index: 3;
+  }
+  
+  .right-15 {
+	right: 15px !important;
+  }
+  
+  .font-13 {
+	font-size: 13px;
+  }
+  
+  .font-14 {
+	font-size: 14px;
+  }
+  
+  .font-18 {
+	font-size: 18px;
+  }
+  
+  .font-20 {
+	font-size: 20px;
+  }
+  
+  .font-22 {
+	font-size: 22px;
+  }
+  
+  .font-24 {
+	font-size: 24px;
+  }
+  
+  .font-30 {
+	font-size: 30px;
+  }
+  
+  .font-35 {
+	font-size: 35px;
+  }
+  
+  .font-50 {
+	font-size: 50px;
+  }
+  
+  .font-60 {
+	font-size: 60px;
+  }
+  
+  .h-5 {
+	height: 5px;
+  }
+  
+  .h-7 {
+	height: 7px;
+  }
+  
+  .h-10 {
+	height: 10px;
+  }
+  
+  .h-350 {
+	height: 350px;
+  }
+  
+  .radius-30 {
+	border-radius: 30px;
+  }
+  
+  .radius-10 {
+	border-radius: 10px;
+  }
+  
+  .radius-15 {
+	border-radius: 15px;
+  }
+  
+  .cursor-pointer {
+	cursor: pointer;
+  }
+  
+  .main-row {
+	height: 100vh;
+  }
+  
+  .main-col {
+	max-width: 500px;
+	min-height: 300px;
+  }

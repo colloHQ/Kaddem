@@ -1,0 +1,19 @@
+.my-drop-zone {
+  min-height: 1.5rem;
+  margin-bottom: 2rem;
+  padding: $spacer;
+  border: dashed 2px;
+  @if $enable-rounded {
+    border-radius: 0.125rem;
+  } @else {
+    border-radius: 0;
+  }
+}
+
+.nv-file-over {
+  border-color: theme-color("danger");
+}
+
+.another-file-over-class {
+  border-color: theme-color("success");
+}

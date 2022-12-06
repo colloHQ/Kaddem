@@ -1,0 +1,50 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Forms</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Text Editor</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="ms-auto">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Settings</button>
+            <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Action</a>
+                <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Another action</a>
+                <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Something else here</a>
+                <div class="dropdown-divider"></div>	<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Separated link</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end breadcrumb-->
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+            <h4 class="mb-0">Form text editor</h4>
+        </div>
+        <hr/>
+        <h2 class="mb-3">TinyMCE Quick Start Guide</h2>
+        <editor
+        [init]="{
+            height: 300,
+            menubar: false,
+            plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+            'undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+        }"
+        ></editor>
+    </div>
+</div>

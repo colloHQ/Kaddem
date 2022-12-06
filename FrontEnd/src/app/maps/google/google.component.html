@@ -1,0 +1,83 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+	<div class="breadcrumb-title pe-3">Google Maps</div>
+	<div class="ps-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb mb-0 p-0">
+				<li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Google Maps</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="ms-auto">
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">Settings</button>
+			<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Action</a>
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Another action</a>
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Something else here</a>
+				<div class="dropdown-divider"></div>	
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Separated link</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end breadcrumb-->
+<div class="row">
+	<!--Basic Map-->
+	<div class="col-12 col-lg-6">
+		<div class="card">
+			<div class="card-header no-shadow">Basic Map</div>
+			<div class="card-body p-0">
+				<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"></agm-map>
+			</div>
+		</div>
+	</div>
+	<!-- / Basic Map-->
+	<!--Styled Map-->
+	<div class="col-12 col-lg-6">
+		<div class="card">
+			<div class="card-header no-shadow">Styled Map</div>
+			<div class="card-body p-0">
+				<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [styles]="styles"></agm-map>
+			</div>
+		</div>
+	</div>
+	<!-- / Styled Map-->
+</div>
+<div class="row">
+	<!--Polylines Map-->
+	<div class="col-12 col-lg-6">
+		<div class="card">
+			<div class="card-header no-shadow">Polylines</div>
+			<div class="card-body p-0">
+				<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+					<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+					<agm-marker [latitude]="latA" [longitude]="lngA"></agm-marker>
+					<agm-polyline>
+						<agm-polyline-point [latitude]="lat" [longitude]="lng"></agm-polyline-point>
+						<agm-polyline-point [latitude]="latA" [longitude]="lngA"></agm-polyline-point>
+					</agm-polyline>
+				</agm-map>
+			</div>
+		</div>
+	</div>
+	<!-- / Polylines Map-->
+	<!--Info Window-->
+	<div class="col-12 col-lg-6">
+		<div class="card">
+			<div class="card-header no-shadow">Info Window</div>
+			<div class="card-body p-0">
+				<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false">
+					<agm-marker [latitude]="lat" [longitude]="lng">
+						<agm-info-window>InfoWindow content</agm-info-window>
+					</agm-marker>
+				</agm-map>
+			</div>
+		</div>
+	</div>
+	<!--Info Window-->
+</div>

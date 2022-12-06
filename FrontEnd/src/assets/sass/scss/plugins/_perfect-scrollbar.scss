@@ -1,0 +1,33 @@
+// angular perfect scrollbar style
+
+.sidebar {
+  .ps.ps--scrolling-y > .ps__rail-y,
+  > .ps.ps--scrolling-x > .ps__rail-x {
+    background-color: transparent !important;
+  }
+}
+
+.ps {
+  .ps__rail-x:hover,
+  .ps__rail-y:hover,
+  .ps__rail-x:focus,
+  .ps__rail-y:focus,
+  .ps__rail-x.ps--clicking,
+  .ps__rail-y.ps--clicking {
+    background-color: transparent !important;
+  }
+}
+
+.sidebar {
+  .ps.ps--active-y > .ps__rail-y:hover,
+  > .ps.ps--active-y > .ps__rail-y.ps--clicking {
+    width: 10px !important;
+  }
+}
+
+.ps__thumb-y {
+  background-color: rgba(32, 32, 32, 0.637) !important;
+  width: 7px !important;
+  border-radius: 7px !important;
+  opacity: 0.5;
+}

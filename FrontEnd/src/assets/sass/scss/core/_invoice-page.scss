@@ -1,0 +1,174 @@
+#invoice {
+	padding: 0;
+  }
+  
+  .invoice {
+	position: relative;
+	background-color: #fff;
+	min-height: 680px;
+	padding: 15px;
+  
+	header {
+	  padding: 10px 0;
+	  margin-bottom: 20px;
+	  border-bottom: 1px solid #0d6efd;
+	}
+  
+	.company-details {
+	  text-align: right;
+  
+	  .name {
+		margin-top: 0;
+		margin-bottom: 0;
+	  }
+	}
+  
+	.contacts {
+	  margin-bottom: 20px;
+	}
+  
+	.invoice-to {
+	  text-align: left;
+  
+	  .to {
+		margin-top: 0;
+		margin-bottom: 0;
+	  }
+	}
+  
+	.invoice-details {
+	  text-align: right;
+  
+	  .invoice-id {
+		margin-top: 0;
+		color: #0d6efd;
+	  }
+	}
+  
+	main {
+	  padding-bottom: 50px;
+  
+	  .thanks {
+		margin-top: -100px;
+		font-size: 2em;
+		margin-bottom: 50px;
+	  }
+  
+	  .notices {
+		padding-left: 6px;
+		border-left: 6px solid #0d6efd;
+		background: #e7f2ff;
+		padding: 10px;
+  
+		.notice {
+		  font-size: 1.2em;
+		}
+	  }
+	}
+  
+	table {
+	  width: 100%;
+	  border-collapse: collapse;
+	  border-spacing: 0;
+	  margin-bottom: 20px;
+  
+	  td {
+		padding: 15px;
+		background: #eee;
+		border-bottom: 1px solid #fff;
+	  }
+  
+	  th {
+		padding: 15px;
+		background: #eee;
+		border-bottom: 1px solid #fff;
+		white-space: nowrap;
+		font-weight: 400;
+		font-size: 16px;
+	  }
+  
+	  td h3 {
+		margin: 0;
+		font-weight: 400;
+		color: #0d6efd;
+		font-size: 1.2em;
+	  }
+  
+	  .qty, .total, .unit {
+		text-align: right;
+		font-size: 1.2em;
+	  }
+  
+	  .no {
+		color: #fff;
+		font-size: 1.6em;
+		background: #0d6efd;
+	  }
+  
+	  .unit {
+		background: #ddd;
+	  }
+  
+	  .total {
+		background: #0d6efd;
+		color: #fff;
+	  }
+  
+	  tbody tr:last-child td {
+		border: none;
+	  }
+  
+	  tfoot {
+		td {
+		  background: 0 0;
+		  border-bottom: none;
+		  white-space: nowrap;
+		  text-align: right;
+		  padding: 10px 20px;
+		  font-size: 1.2em;
+		  border-top: 1px solid #aaa;
+		}
+  
+		tr {
+		  &:first-child td {
+			border-top: none;
+		  }
+  
+		  &:last-child td {
+			color: #0d6efd;
+			font-size: 1.4em;
+			border-top: 1px solid #0d6efd;
+		  }
+  
+		  td:first-child {
+			border: none;
+		  }
+		}
+	  }
+	}
+  
+	footer {
+	  width: 100%;
+	  text-align: center;
+	  color: #777;
+	  border-top: 1px solid #aaa;
+	  padding: 8px 0;
+	}
+  }
+  
+  @media print {
+	.invoice {
+	  font-size: 11px !important;
+	  overflow: hidden !important;
+  
+	  footer {
+		position: absolute;
+		bottom: 10px;
+		page-break-after: always;
+	  }
+  
+	  > div:last-child {
+		page-break-before: always;
+	  }
+	}
+  }

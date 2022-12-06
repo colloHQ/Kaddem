@@ -1,0 +1,101 @@
+html {
+	&.semi-dark {
+	  .sidebar-wrapper {
+		background: #171717;
+		border-right: 1px solid #e4e4e400;
+  
+		.sidebar-header {
+		  background: #171717;
+		  border-right: 1px solid #e4e4e400;
+		  border-bottom: 1px solid rgb(255 255 255 / 15%);
+  
+		  .logo-text, .toggle-icon {
+			color: #e7e9ec;
+		  }
+		}
+	  }
+  
+	  .sidebar .navigation li {
+		&.open > a {
+		  color: #fff;
+		  background: rgb(255 255 255 / 18%);
+		}
+  
+		> a {
+		  color: #9ea4aa;
+		}
+  
+		&:hover > a, &.active > a {
+		  color: #fff;
+		  background: rgb(255 255 255 / 18%);
+		}
+  
+		ul {
+		  border: 1px solid #ffffff00;
+		  background: rgb(255 255 255 / 8%);
+  
+		  li {
+			&:hover > a, &.active > a {
+			  color: #fff;
+			  background: rgb(255 255 255 / 18%);
+			}
+		  }
+		}
+	  }
+  
+	  .simplebar-scrollbar:before {
+		background: rgba(255, 255, 255, 0.4);
+	  }
+  
+	  .logo-icon {
+		filter: invert(1) grayscale(100%) brightness(200%);
+	  }
+	}
+  
+	&.ColorLessIcons .sidebar-wrapper .metismenu {
+	  .icon-color-1, .icon-color-10, .icon-color-11, .icon-color-12, .icon-color-2, .icon-color-3, .icon-color-4, .icon-color-5, .icon-color-6, .icon-color-7, .icon-color-8, .icon-color-9 {
+		color: inherit;
+	  }
+	}
+  
+	&.minimal-theme {
+	  .topbar {
+		background: #f7f7ff;
+		border-bottom: 1px solid #dee2e6;
+		box-shadow: none !important;
+  
+		.search-control {
+		  background-color: #f7f7ff;
+		  border: 1px solid #dee2e6;
+		}
+  
+		.user-box {
+		  border-left: 1px solid #dee2e6;
+		}
+	  }
+  
+	  .sidebar-wrapper {
+		background: #f7f7ff;
+		border-right: 1px solid #dee2e6;
+		box-shadow: none !important;
+	  }
+  
+	  .sidebar-header {
+		background: #f7f7ff;
+		border-bottom: 1px solid #dee2e6;
+		background-clip: padding-box;
+	  }
+	}
+  }
+  
+  @media screen and (min-width: 1025px) {
+	html.minimal-theme .wrapper.nav-collapsed.sidebar-hovered .sidebar-wrapper {
+	  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.12) !important;
+	}
+  }
+
+  html.minimal-theme .card {
+    background-color: #f7f7ff;
+    box-shadow: none;
+    border: 1px solid rgb(0 0 0 / 12%) !important;
+}

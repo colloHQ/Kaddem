@@ -1,0 +1,59 @@
+.nav-primary.nav-tabs .nav-link.active {
+	color: #0d6efd;
+	border-color: #0d6efd #0d6efd #fff;
+  }
+  
+  .nav-danger.nav-tabs .nav-link.active {
+	color: #f41127;
+	border-color: #f41127 #f41127 #fff;
+  }
+  
+  .nav-success.nav-tabs .nav-link.active {
+	color: #17a00e;
+	border-color: #17a00e #17a00e #fff;
+  }
+  
+  .nav-warning.nav-tabs .nav-link.active {
+	color: #ffc107;
+	border-color: #ffc107 #ffc107 #fff;
+  }
+  
+  .nav-pills-danger.nav-pills .nav-link.active {
+	color: #fff;
+	background-color: #f41127;
+  }
+  
+  .nav-pills-success.nav-pills .nav-link.active {
+	color: #fff;
+	background-color: #17a00e;
+  }
+  
+  .nav-pills-warning.nav-pills .nav-link.active {
+	color: #000;
+	background-color: #ffc107;
+  }
+  
+  .nav-search {
+	input.form-control {
+	  background-color: rgb(255 255 255 / 20%);
+	  border: 1px solid rgb(255 255 255 / 45%);
+	  color: #fff;
+	}
+  
+	button[type=submit] {
+	  background-color: rgb(255 255 255 / 20%);
+	  border: 1px solid rgb(255 255 255 / 32%);
+	  color: #fff;
+	}
+  
+	input.form-control {
+	  &::placeholder {
+		opacity: 0.5 !important;
+		color: #fff !important;
+	  }
+  
+	  &::-ms-input-placeholder {
+		color: #fff !important;
+	  }
+	}
+  }

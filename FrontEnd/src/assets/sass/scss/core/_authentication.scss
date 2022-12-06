@@ -1,0 +1,56 @@
+.section-authentication-signin {
+	height: 100vh;
+  }
+  
+  .authentication-forgot, .authentication-reset-password, .authentication-lock-screen, .error-404 {
+	height: 100vh;
+	padding: 0 1rem;
+  }
+  
+  .error-social a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	border-radius: 50%;
+	margin: 5px;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  }
+  
+  .bg-login {
+	background-image: url(../../../images/login-images/bg-login-img.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  }
+  
+  .bg-forgot {
+	background-image: url(../../../images/login-images/bg-forgot-password.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  }
+  
+  .bg-lock-screen {
+	background-image: url(../../../images/login-images/bg-lock-screen.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+  }
+  
+  .login-separater span {
+	position: relative;
+	top: 26px;
+	margin-top: -10px;
+	background: #fff;
+	padding: 5px;
+	font-size: 12px;
+	color: #cbcbcb;
+	z-index: 1;
+  }

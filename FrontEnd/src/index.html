@@ -2,12 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>FrontEnd</title>
+  <title>Bulona - Angular 13+ Admin Template</title>
   <base href="/">
+  <!-- https://codervent.com/bulona-angular -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--favicon-->
+	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+  <link rel="stylesheet" href="assets/vendor/pace/themes/blue/pace-theme-minimal.css" />
+  <style type="text/css">
+    .pace {
+      -webkit-pointer-events: none;
+      pointer-events: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    .pace-inactive {
+      display: none;
+    }
+
+    .pace .pace-progress {
+      background: #0d6efd;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      right: 100%;
+      width: 100%;
+      height: 3px;
+    }
+
+    .page-loading {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: -1;
+    }
+
+    .loading-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -19px;
+      margin-top: -19px;
+    }
+
+    app-root:empty~.page-loading {
+      opacity: 1;
+      z-index: 1;
+    }
+
+  </style>
 </head>
 <body>
   <app-root></app-root>
+
+    <div class="page-loading">
+      <div class="spinner-border text-primary loading-icon" role="status">
+      </div>
+    </div>
 </body>
 </html>

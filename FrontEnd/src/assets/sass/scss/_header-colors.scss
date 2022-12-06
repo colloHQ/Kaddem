@@ -1,0 +1,249 @@
+html.color-header {
+	.topbar .navbar-nav .nav-link {
+	  color: #fff;
+	}
+  
+	.search-bar input {
+	  color: #413f3f;
+	  background-color: #fff !important;
+	  border: 1px solid rgb(241 241 241 / 15%) !important;
+	  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0%);
+  
+	  &:focus {
+		box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+	  }
+  
+	  &::placeholder {
+		color: #08090a !important;
+		opacity: 0.5 !important;
+	  }
+	}
+  
+	&::placeholder {
+	  color: #08090a !important;
+	  opacity: 0.5 !important;
+	}
+  
+	.search-show {
+	  color: #221f1f;
+	}
+  
+	.user-info {
+	  .user-name, .designattion {
+		color: #fff;
+	  }
+	}
+  
+	.user-box {
+	  border-left: 1px solid rgb(255 255 255 / 0.35) !important;
+	}
+  
+	.mobile-toggle-menu {
+	  color: #fff;
+	}
+  }
+  
+  .switcher-body {
+	.headercolor1 {
+	  background: #0727d7 !important;
+	}
+  
+	.headercolor2 {
+	  background: #23282c !important;
+	}
+  
+	.headercolor3 {
+	  background: #e10a1f !important;
+	}
+  
+	.headercolor4 {
+	  background: #157d4c !important;
+	}
+  
+	.headercolor5 {
+	  background: #673ab7 !important;
+	}
+  
+	.headercolor6 {
+	  background: #795548 !important;
+	}
+  
+	.headercolor7 {
+	  background: #d3094e !important;
+	}
+  
+	.headercolor8 {
+	  background: #ff9800 !important;
+	}
+  }
+  
+  html {
+	&.headercolor1 .topbar {
+	  background: #0727d7;
+	}
+  
+	&.headercolor2 .topbar {
+	  background: #23282c;
+	}
+  
+	&.headercolor3 .topbar {
+	  background: #e10a1f;
+	}
+  
+	&.headercolor4 .topbar {
+	  background: #157d4c;
+	}
+  
+	&.headercolor5 .topbar {
+	  background: #673ab7;
+	}
+  
+	&.headercolor6 .topbar {
+	  background: #795548;
+	}
+  
+	&.headercolor7 .topbar {
+	  background: #d3094e;
+	}
+  
+	&.headercolor8 .topbar {
+	  background: #ff9800;
+	}
+  
+	&.color-sidebar {
+	  .sidebar-wrapper {
+		background-color: #171717;
+		border-right: 1px solid rgb(228 228 228 / 0%);
+  
+		.sidebar-header {
+		  position: absolute;
+		  background-color: transparent;
+		  border-right: 1px solid #e4e4e400;
+		  border-bottom: 1px solid rgb(255 255 255 / 15%);
+		}
+	  }
+  
+	  .logo-icon {
+		filter: invert(1) grayscale(100%) brightness(200%);
+	  }
+  
+	  .menu-label {
+		color: rgb(255 255 255 / 65%);
+	  }
+  
+	  .sidebar-wrapper .sidebar-header {
+		.logo-text, .toggle-icon {
+		  color: #ffffff;
+		}
+	  }
+  
+	  .simplebar-scrollbar:before {
+		background: rgba(255, 255, 255, 0.4);
+	  }
+  
+	  .sidebar .navigation li {
+		&.open > a {
+		  color: #fff;
+		  background: rgb(255 255 255 / 18%);
+		}
+  
+		> a {
+		  color: rgb(255 255 255 / 85%);
+		}
+  
+		&:hover > a, &.active > a {
+		  color: #fff;
+		  background: rgb(255 255 255 / 18%);
+		}
+  
+		ul {
+		  border: 1px solid #ffffff00;
+		  background: rgb(255 255 255 / 8%);
+  
+		  li {
+			&:hover > a, &.active > a {
+			  color: #fff;
+			  background: rgb(255 255 255 / 18%);
+			}
+		  }
+		}
+	  }
+  
+	  .sidebar-wrapper {
+		background-size: 100% 100%;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+	  }
+	}
+  }
+  
+  /* sidebar color */
+  
+  .switcher-wrapper {
+	.sidebarcolor1 {
+	  background-image: url(../../images/bg-themes/1.png);
+	}
+  
+	.sidebarcolor2 {
+	  background-image: url(../../images/bg-themes/2.png);
+	}
+  
+	.sidebarcolor3 {
+	  background-image: url(../../images/bg-themes/3.png);
+	}
+  
+	.sidebarcolor4 {
+	  background-image: url(../../images/bg-themes/4.png);
+	}
+  
+	.sidebarcolor5 {
+	  background-image: url(../../images/bg-themes/5.png);
+	}
+  
+	.sidebarcolor6 {
+	  background-image: url(../../images/bg-themes/6.png);
+	}
+  
+	.sidebarcolor7 {
+	  background-image: url(../../images/bg-themes/7.png);
+	}
+  
+	.sidebarcolor8 {
+	  background-image: url(../../images/bg-themes/8.png);
+	}
+  }
+  
+  html.color-sidebar {
+	&.sidebarcolor1 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/1.png);
+	}
+  
+	&.sidebarcolor2 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/2.png);
+	}
+  
+	&.sidebarcolor3 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/3.png);
+	}
+  
+	&.sidebarcolor4 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/4.png);
+	}
+  
+	&.sidebarcolor5 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/5.png);
+	}
+  
+	&.sidebarcolor6 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/6.png);
+	}
+  
+	&.sidebarcolor7 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/7.png);
+	}
+  
+	&.sidebarcolor8 .sidebar-wrapper {
+	  background-image: url(../../images/bg-themes/8.png);
+	}
+  }

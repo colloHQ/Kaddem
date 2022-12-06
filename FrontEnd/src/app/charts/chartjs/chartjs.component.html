@@ -1,0 +1,122 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+	<div class="breadcrumb-title pe-3">Charts</div>
+	<div class="ps-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb mb-0 p-0">
+				<li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">Chartjs</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="ms-auto">
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">Settings</button>
+			<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+			</button>
+			<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Action</a>
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Another action</a>
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Something else here</a>
+				<div class="dropdown-divider"></div>	
+				<a class="dropdown-item" href="#" (click)="$event.preventDefault()">Separated link</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end breadcrumb-->
+<div class="row">
+	<div class="col-xl-9 mx-auto">
+		<h6 class="mb-0 text-uppercase">Bar Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Line Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Pie Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)" [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Radar Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions" [labels]="radarChartLabels" [chartType]="radarChartType"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Polar Area Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [data]="polorChartData" [labels]="polorChartLabels" [options]="polorChartOptions" [chartType]="polorChartType" (chartHover)="chartHovered($event)" [colors]="polorChartColors" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Doughnut Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" [colors]="doughnutChartColors" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Horizontal Bar Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="horizontalbarChartData" [labels]="horizontalbarChartLabels" [options]="horizontalbarChartOptions" [legend]="horizontalbarChartLegend" [chartType]="horizontalbarChartType" [colors]="horizontalbarChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Grouped Bar Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="groupedbarChartData" [labels]="groupedbarChartLabels" [options]="groupedbarChartOptions" [legend]="groupedbarChartLegend" [chartType]="groupedbarChartType" [colors]="groupedbarChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Mixed Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="mixedbarChartData" [labels]="mixedbarChartLabels" [options]="mixedbarChartOptions" [legend]="mixedbarChartLegend" [chartType]="mixedbarChartType" [colors]="mixedbarChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<h6 class="mb-0 text-uppercase">Bubble Chart</h6>
+		<hr/>
+		<div class="card">
+			<div class="card-body">
+				<div class="chart-container1">
+					<canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [legend]="bubbleChartLegend" [chartType]="bubbleChartType"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end row-->

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bulona - Angular 13+ Bootstrap 5+ Admin Template</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <!--favicon-->
+	<link rel="icon" type="image/png"  href="favicon-32x32.png" >
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/lightbox/dist/ekko-lightbox.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-primary">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="logo-icon.png" width="60" height="60"/>
+                            <span class="text-dark">Bulona Admin</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a>Documentation</a></li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div class="doc-body row" >
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="Getting-Started" class="doc-section">
+                                <h2 class="section-title">Getting Started</h2>
+                                <div class="section-block">
+                                    <h3>Getting Started</h3>
+                                    <p>Make sure you have <code>Nodejs</code>, <code>NPM</code> and <code>@angular/cli</code> installed on your computer.</p>
+                                    <p>Download node <a href="https://nodejs.org/en/download/" target="_blank">https://nodejs.org/en/download</a></p>
+                                    <p>Open terminal and run <code>npm install -g @angular/cli</code></p>
+                                    <p>Angular CLI Doc: <a href="https://cli.angular.io/" target="_blank">https://cli.angular.io</a></p>
+
+                                    <h5>Serve and build</h5>
+                                    <p>Use terminal and navigate to project root.</p>
+                                    <p>Then run <code>npm install</code></p>
+
+                                    <h5>Development server</h5>
+                                    <p>Run <code>ng serve</code> for a dev server. Navigate to <a href="http://localhost:4200" target="_blank">http://localhost:4200</a>. 
+                                    The app will automatically reload if you change any of the source files.</p>
+
+                                    <h5>Code Scaffolding</h5>
+                                    <p>Run <code>ng generate component componentName</code> to generate a new component. 
+                                    You can also use <code>ng generate directive/pipe/service/class/module</code>.</p>
+
+                                    <h5>Build</h5>
+                                    <p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the dist/ directory. 
+                                    Use the <code>-prod</code> flag for a production build.</p>
+                                    <h5>App Entry Point</h5>
+                                    <p><code>main.ts</code> (Location: src) is the entry file. And <code>app.scss</code> (Location: "src/assets/styles/app.scss")
+                                    is the entry file for Styles which is included in <code>angular.json</code> file.</p>
+                                </div><!--//section-block-->
+                                <div class="section-block">
+                                    <div id="routings" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                                        <h3 class="section-title">Route Configuration</h3>
+                                        <br>
+                                        <p>There are two main <code>router-outlet</code>s in <code>Content-Layout.Component</code> and <code>full-Layout.Component</code>
+                                          (Location: src/app//layouts). <code>Content-Layout.Component</code> renders sessions view 
+                                          (Location: src/app/layouts) and <code>full-Layout.Component</code> renders all views except sessions view.</p>
+                                          <p>Each directory in <code>src/app/</code> is a module. And those modules are lazy loaded which is configured 
+                                            in <code>routes</code> (Location: src/app/shared). And also each modules has it's own routing file defines it's child routes.</p>
+                                    </div>
+                                </div><!--//section-block-->
+                                
+                            </section><!--//doc-section-->
+                            
+        <section id="folder-structure" class="doc-section">
+            <h2 class="section-title">Folder Structure</h2>
+            <div id="projects" class="section-block">
+                <pre>
+                    <code>
+                Bulona
+                ├── CHANGELOG.md
+                ├── LICENSE.md
+                ├── README.md
+                ├── angular-cli.json
+                ├── documentation
+                ├── karma.conf.js
+                ├── package.json
+                ├── protractor.conf.js
+                ├── src
+                │   ├── app
+                │   │   ├── app.component.scss
+                │   │   ├── app.component.html
+                │   │   ├── app.component.ts
+                │   │   ├── app.module.ts
+                │   │   ├── app.routing.ts
+                │   │   ├── components
+                │   │   │   ├── .....
+                │   │   ├── shared
+                │   │   │   ├── sidebar
+                │   │   │   ├── ......
+                │   │   ├── dashboard
+                │   │   │   ├── .....
+                │   │   ├── icons
+                │   │   │   ├── .....
+                │   │   ├── .....
+                │   ├── assets
+                            └── .....
+                │   ├── environments
+                │   ├── favicon.ico
+                │   ├── index.html
+                │   ├── main.ts
+                │   ├── polyfills.ts
+                │   ├── styles.scss
+                │   ├── test.ts
+                │   ├── tsconfig.app.json
+                │   ├── tsconfig.spec.json
+                │   └── typings.d.ts
+                ├── tsconfig.json
+                ├── tslint.json
+                └── typings
+                    </code>
+                </pre>
+            </div><!--//section-block-->
+        </section><!--//doc-section-->
+        <section id="Navigation" class="doc-section">
+            <h2 class="section-title">Navigation</h2>
+            <div class="section-block">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Menu items are served by <code>sidebar.metadata.ts</code> (Location: shared/sidebar/sidebar.metadata.ts). 
+                            You have to define your menu items there.</p>
+                            <p>This metadata serves array of <code>IMenuItem</code>.</p>
+                        <pre><code>
+                        
+                        export interface RouteInfo {
+                            path: string;
+                            title: string;              // Used as display text for item and title for separator type
+                            icon: string;               // Item icon name
+                            class: string;              // sub (submenu)
+                            badge: string;              // Used as display text for bedge
+                            badgeClass: string;         // bedge classes /info/danger..
+                            isExternalLink: boolean;    // true/false
+                            submenu : RouteInfo[];      //submenu
+                        }
+                                
+                        </code></pre>
+                    </div>
+                </div><!--//row-->
+            </div><!--//section-block-->
+        </section><!--//doc-section-->
+
+        <section id="classes" class="doc-section">
+            <h2 class="section-title">Common CSS Classes</h2>
+            <div class="section-block">
+                <div class="row">
+                    <div>
+                        <div class="mdl-cell--6-col mdl-grid">
+                          <h5>Background color</h5>
+                          <ul>
+                            <li>.bg-primary</li>
+                            <li>.bg-success</li>
+                            <li>.bg-warning</li>
+                            <li>.bg-danger</li>
+                            <li>.bg-light</li>
+                            <li>.bg-dark</li>
+                          </ul>
+                          <br>
+                          
+                          <h5>Color</h5>
+                          <ul>
+                            <li>.text-primary</li>
+                            <li>.text-success</li>
+                            <li>.text-warning</li>
+                            <li>.text-danger</li>
+                            <li>.text-light</li>
+                            <li>.text-dark</li>
+                          </ul>
+                          
+                        </div>
+                        
+                        <div>
+                          <a href="https://getbootstrap.com/docs/5.1/utilities/borders/">View all Classes</a>
+                        </div>
+                    </div>
+                </div><!--//row-->
+            </div><!--//section-block-->
+        </section><!--//doc-section-->
+
+        <section id="dependencies" class="doc-section">
+            <h2 class="section-title">Dependencies</h2>
+            <div class="section-block">
+                <p>appify is packed with building blocks. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. </p>
+                <div class="row">
+                    <div class="col-12">
+                <pre>
+                    <code>
+                        "dependencies": {
+                                "@agm/core": "^1.1.0",
+                                "@angular/animations": "~13.3.1",
+                                "@angular/common": "~13.3.1",
+                                "@angular/compiler": "~13.3.1",
+                                "@angular/core": "~13.3.1",
+                                "@angular/forms": "~13.3.1",
+                                "@angular/platform-browser": "~13.3.1",
+                                "@angular/platform-browser-dynamic": "~13.3.1",
+                                "@angular/router": "~13.3.1",
+                                "@ng-bootstrap/ng-bootstrap": "^11.0.0-beta.1",
+                                "@popperjs/core": "^2.9.2",
+                                "@tinymce/tinymce-angular": "^4.2.3",
+                                "angular-calendar": "^0.28.24",
+                                "angular2-text-mask": "^9.0.0",
+                                "angularx-flatpickr": "^6.2.0",
+                                "apexcharts": "^3.26.3",
+                                "bootstrap": "^5.0.1",
+                                "chart.js": "^2.9.4",
+                                "date-fns": "2.16.1",
+                                "flatpickr": "^4.6.6",
+                                "highcharts": "^9.1.0",
+                                "highcharts-angular": "^2.10.0",
+                                "jquery": "^3.6.0",
+                                "ng2-charts": "^2.4.2",
+                                "ngx-perfect-scrollbar": "^10.1.1",
+                                "rxjs": "~7.5.0",
+                                "smartwizard": "^5.1.1",
+                                "text-mask-addons": "^3.8.0",
+                                "tslib": "^2.3.0",
+                                "zone.js": "~0.11.4"
+                          }
+                    </code>
+                </pre>
+                    </div>
+                </div><!--//row-->
+            </div><!--//section-block-->
+        </section><!--//doc-section-->
+
+
+        <section id="third-party" class="doc-section">
+            <h2 class="section-title">Third Party</h2>
+            <div class="section-block">
+                <p>appify is packed with building blocks. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. </p>
+                <div class="row">
+                    <div class="col-12">
+                        <p>The following is a list of resources, plugins and other assets used in creating this template. Follow the links for more information on how you can use them.</p>
+                        <ol>
+                        <li><a href="https://angular.io/">Angular</a></li>
+                        <li><a href="http://getbootstrap.com/">Bootstrap 5 - Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</a></li>
+                        <li><a href="https://github.com/mattlewis92/angular-calendar">angular-calendar - Angular calendar - A flexible calendar component for angular 2.0+ that can display events on a month, week or day view.</a></li>
+                        <li><a href="https://github.com/valor-software/ng2-charts">Chart Js</a></li>
+                        <li><a href="https://github.com/zefoy/ngx-perfect-scrollbar">ngx-perfect-scrollbar</a></li>
+                        <li><a href="https://github.com/SebastianM/angular-google-maps">angular-google-maps - Angular 2+ Google Maps Components</a></li>
+                        </ol>
+                    </div>
+                </div><!--//row-->
+            </div><!--//section-block-->
+        </section><!--//doc-section-->
+
+        
+                        
+                    </div><!--//content-inner-->
+                </div><!--//doc-content-->
+                <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                    <div id="doc-nav" class="doc-nav">
+                        <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                            <a class="nav-link scrollto" href="#Getting-Started">Getting Started</a>
+                            <a class="nav-link scrollto" href="#folder-structure">Folder Structure</a>
+                            <a class="nav-link scrollto" href="#Navigation">Navigation</a>
+                            <a class="nav-link scrollto" href="#classes">Common CSS Classes</a>
+                            <a class="nav-link scrollto" href="#dependencies">Dependencies</a>
+                            <a class="nav-link scrollto" href="#third-party">Third Party</a>
+                        </nav><!--//doc-menu-->
+                    </div><!--//doc-nav-->
+                </div><!--//doc-sidebar-->
+            </div><!--//doc-body-->              
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
+<footer id="footer" class="footer text-center">
+    <div class="container">
+        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+        <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="https://themeforest.net/user/codervent/portfolio">Codervent</a></small>
+        
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>  
+    <script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>      
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                              
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 

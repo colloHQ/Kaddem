@@ -1,0 +1,18 @@
+.breadcrumb-title {
+	font-size: 20px;
+	border-right: 1.5px solid #aaa4a4;
+  }
+  
+  .page-breadcrumb {
+	.breadcrumb li.breadcrumb-item {
+	  font-size: 16px;
+	}
+  
+	.breadcrumb-item + .breadcrumb-item::before {
+	  display: inline-block;
+	  padding-right: .5rem;
+	  color: #6c757d;
+	  font-family: LineIcons;
+	  content: "";
+	}
+  }
