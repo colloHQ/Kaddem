@@ -49,8 +49,8 @@ INSERT INTO `detail_equipe` (`id_detail_equipe`, `salle`, `thematique`) VALUES
 --
 
 INSERT INTO `equipe` (`id_equipe`, `niveau`, `nom_equipe`, `detail_equipe_id_detail_equipe`) VALUES
-(1, 'EXPERT', 'newbies', 1),
-(3, 'JUNIOR', 'test', 7);
+(1, 'EXPERT', 'Wild Boys', 1),
+(3, 'JUNIOR', 'Rookies', 7);
 
 --
 -- Dumping data for table `equipe_etudiants`
@@ -65,9 +65,9 @@ INSERT INTO `equipe_etudiants` (`equips_id_equipe`, `etudiants_id_etudiant`) VAL
 --
 
 INSERT INTO `etudiant` (`id_etudiant`, `nom_etudiant`, `option`, `prenom_etudiant`, `departement_id_departement`) VALUES
-(1, 'test', 'TWIN', 'test', 1),
-(3, 'test', 'Gamix', 'test', 1),
-(4, 'test', 'Gamix', 'test', 1);
+(1, 'ben akkez', 'TWIN', 'Brahim', 1),
+(3, 'ben romdhane', 'Gamix', 'Wassim', 1),
+(4, 'ben foulen', 'Gamix', 'Khaled', 1);
 
 --
 -- Dumping data for table `universite`

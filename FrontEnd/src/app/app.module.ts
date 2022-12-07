@@ -25,6 +25,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import * as $ from 'jquery';
+import { EtudiantsModule } from './etudiants/etudiants.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import * as $ from 'jquery';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    EtudiantsModule,
     NgbModule,
     HttpClientModule,
     NgbModule,

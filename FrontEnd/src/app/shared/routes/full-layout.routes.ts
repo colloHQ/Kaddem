@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 //Route for content layout with sidebar, navbar and footer.
 
 export const Full_ROUTES: Routes = [
+    { path: 'etudiants', loadChildren: () => import('../../etudiants/etudiants.module').then(m => m.EtudiantsModule) },
     {
         path: 'dashboard',
         loadChildren: () => import('../../dashboard/dashboard.module').then(m => m.DashboardModule)
