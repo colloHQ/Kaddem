@@ -11,6 +11,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/Departement")
+@CrossOrigin(origins = "http://localhost:4200/")
 @AllArgsConstructor
 public class DepartementController {
 
