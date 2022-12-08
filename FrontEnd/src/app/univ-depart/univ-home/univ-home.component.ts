@@ -11,7 +11,6 @@ import { UnivDepartService } from '../univ-depart.service';
 })
 export class UnivHomeComponent implements OnInit {
 
-  departs: Departement[]
   univs: Universite[]
   action: string
   title: string 
@@ -26,20 +25,20 @@ export class UnivHomeComponent implements OnInit {
     this.action = this.activatedRoute.snapshot.routeConfig.path
     console.log(this.activatedRoute.snapshot.routeConfig.path)
     if(this.action === "univ/home"){
-      this.univDepartService.getAllDeparts().subscribe((data: Departement[])=>{
+      this.univDepartService.getAllUniv().subscribe((data: Universite[])=>{
         console.log("hello")
         console.log(data)
-        this.departs = data
+        this.univs = data
       }) 
       this.title = "Universites"
     }
   }
 
-  deleteDepart(depart: Departement){
-    let i = this.departs.indexOf(depart)
-    if(i!=-1) this.departs.splice(i,1)
-    this.univDepartService.deleteDepart(depart.idDepartement).subscribe( res => {
-      console.log('Depart deleted')
+  deleteUniv(univ: Universite){
+    let i = this.univs.indexOf(univ)
+    if(i!=-1) this.univs.splice(i,1)
+    this.univDepartService.deleteUniv(univ.idUniversite).subscribe( res => {
+      console.log('Universite deleted')
     })
   }
 

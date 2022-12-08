@@ -1,4 +1,4 @@
 export class Universite{
-    idUniv: number
-    nomUniv: String
+    idUniversite: number
+    nomUniversite: String
 }

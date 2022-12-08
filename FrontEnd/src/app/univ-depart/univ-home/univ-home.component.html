@@ -1,6 +1,6 @@
 <div>
     <h1>{{title}} :</h1>
-    <button type="button" class="btn btn-primary add-btn" [routerLink]="['/univDepart/depart/create/']">Ajouter {{title}}</button>
+    <button type="button" class="btn btn-primary add-btn" [routerLink]="['/univDepart/univ/create/']">Ajouter {{title}}</button>
 </div>
 
 <div class="card">
@@ -14,13 +14,13 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let depart of departs">
-                    <th scope="row">{{depart.idDepartement}}</th>
-                    <td>{{depart.nomDepartement}}</td>
+                <tr *ngFor="let univ of univs">
+                    <th scope="row">{{univ.idUniversite}}</th>
+                    <td>{{univ.nomUniversite}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary add-btn" [routerLink]="['/univDepart/depart/details/', depart.idDepartement]">Details</button>
-                        <button type="button" class="btn btn-warning add-btn" [routerLink]="['/univDepart/depart/update/', depart.idDepartement]">Update</button>
-                        <button type="button" class="btn btn-danger add-btn" (click)="deleteDepart(depart)">Remove</button>
+                        <button type="button" class="btn btn-primary add-btn" [routerLink]="['/univDepart/univ/details/', univ.idUniversite]">Details</button>
+                        <button type="button" class="btn btn-warning add-btn" [routerLink]="['/univDepart/univ/update/', univ.idUniversite]">Update</button>
+                        <button type="button" class="btn btn-danger add-btn" (click)="deleteUniv(univ)">Remove</button>
                     </td>
                 </tr>
             </tbody>

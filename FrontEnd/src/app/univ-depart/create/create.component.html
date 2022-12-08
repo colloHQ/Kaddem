@@ -1,7 +1,7 @@
 <form #f="ngForm">
   <div class="form-group col-md-6">
-    <label>Nom Departement :</label>
-    <input type="text" [(ngModel)]="depart.nomDepartement" placeholder={{depart.nomDepartement}} name="title" 
+    <label>Nom {{title}} :</label>
+    <input type="text" [(ngModel)]="toAdd" name="title" 
     class="form-control" required minlength="3"
      #t="ngModel" />
     <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
@@ -11,7 +11,7 @@
   </div>
 
   <br>
-  <button class="btn btn-success" (click)="addDepart()"
+  <button class="btn btn-success" (click)="add()"
   [disabled]="f.invalid">
     save
   </button>
