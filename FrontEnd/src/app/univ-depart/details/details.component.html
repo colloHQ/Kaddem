@@ -1,1 +1,27 @@
-<p>details works!</p>
+<div>
+    <h1>{{title}} :</h1>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered mb-0">
+            <thead>
+                <tr>
+                    <td scope="col">Id : {{id}}</td>
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+                    <td scope="col">Nom : {{toUpdate}}</td>
+                </tr>
+                <tr>
+                    <td> Actions :
+                        <button type="button" class="btn btn-warning add-btn" [routerLink]="[updateLink, id]">Update</button>
+                        <button type="button" class="btn btn-danger add-btn" (click)="deleteEntity()">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button type="button" class="btn btn-primary add-btn" (click)="returnHome()">Return Home</button>
+</div>
