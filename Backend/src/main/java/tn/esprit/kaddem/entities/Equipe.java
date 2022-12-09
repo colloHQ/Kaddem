@@ -31,6 +31,9 @@ public class Equipe implements Serializable {
     @ManyToMany
     @JsonIgnore
     private Set<Etudiant> etudiants;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "equipe")
+    Set<Projet> projets;
 
-
+    @ManyToOne
+    Encadrant encadrant;
 }
