@@ -32,5 +32,6 @@ public class Equipe implements Serializable {
     @JsonIgnore
     private Set<Etudiant> etudiants;
 
-
+    @ManyToOne
+    Encadrant encadrant;
 }
