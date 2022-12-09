@@ -5,10 +5,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -26,12 +22,12 @@ public class Encadrant {
     long idEncadrant;
     String prenomEncadrant;
     String nomEncadrant;
+    @Temporal(TemporalType.DATE)
     Date dateEmbauche;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "encadrant")
     Set<Equipe> equipes;
 
-
-
+    @ManyToOne
+    Entreprise entreprise;
 }

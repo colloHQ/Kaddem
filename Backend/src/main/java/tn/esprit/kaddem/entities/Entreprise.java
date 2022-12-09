@@ -1,12 +1,14 @@
 package tn.esprit.kaddem.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -15,24 +17,19 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Equipe")
-public class Equipe implements Serializable {
+public class Entreprise implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEquipe;
-    private String nomEquipe;
+    long idEntreprise;
+    String nomEntreprise;
+    String addresseEntreprise;
+    int numeroEntreprise;
     @Enumerated(EnumType.STRING)
-    private Niveau niveau;
+    Secteur secteur;
 
-    @OneToOne
-    private DetailEquipe detailEquipe;
-
-    @ManyToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entreprise")
     @JsonIgnore
-    private Set<Etudiant> etudiants;
+    Set<Encadrant> encadrants;
 
-    @JsonIgnore
-    @ManyToOne
-    Encadrant encadrant;
 }
