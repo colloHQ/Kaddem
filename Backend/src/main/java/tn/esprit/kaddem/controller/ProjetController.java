@@ -2,11 +2,9 @@ package tn.esprit.kaddem.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.kaddem.entities.Etudiant;
 import tn.esprit.kaddem.entities.Projet;
-import tn.esprit.kaddem.entities.projet;
-import tn.esprit.kaddem.services.IProjetService;
-import tn.esprit.kaddem.services.IprojetServices;
-import tn.esprit.kaddem.services.ProjetService;
+import tn.esprit.kaddem.services.ProjetServiceImp;
 
 import java.util.List;
 
@@ -15,33 +13,35 @@ import java.util.List;
 @AllArgsConstructor
 public class ProjetController {
 
-    IProjetService projetService;
-
+    ProjetServiceImp projetServiceImp;
     @GetMapping("/getAll")
-    public List<Projet> getAllProjet() {
-        return ProjetService.getAllprojets();
+    public List<Projet> getAllEtudiant() {
+        return projetServiceImp.getAllProjet();
     }
 
     @PostMapping("/add")
-    public projet addprojet(@RequestBody projet u) {
-        return projetServices.addprojet(u);
+    public Projet addEtudiant(@RequestBody Projet p) {
+        return projetServiceImp.addProjet(p);
     }
 
     @PutMapping("/update")
-    public projet updatprojet(@RequestBody projet u) {
-        return projetServices.updateprojet(u);
+    public Projet updatEtudiant(@RequestBody Projet p) {
+        return projetServiceImp.updateProjet(p);
     }
 
-    @DeleteMapping("/delete/{idprojet}")
-    void deleteprojet(@PathVariable ("idprojet") Integer idprojet) {
-        projetServices.deleteprojet(idprojet);
+    @DeleteMapping("/delete/{idProjet}")
+    void deleteETudiant(@PathVariable("idProjet") Long idProjet) {
+        projetServiceImp.deleteProjet(idProjet);
     }
 
-    @GetMapping("/getById/{idprojet}")
-    public projet getprojet(@PathVariable ("idprojet") Integer idprojet) {
-        return projetServices.getprojet(idprojet);
+    @GetMapping("/getById/{idProjet}")
+    public Projet getEtudiant(@PathVariable ("idProjet") Long idProjet) {
+        return projetServiceImp.getProjet(idProjet);
     }
 
-
+    @PostMapping("/addAndAssignProjetToEntreprise/{idEntreprise}")
+    public Projet addAndAssignProjetToEntreprise(@RequestBody Projet p,@PathVariable("idEntreprise") Long idEntreprise){
+        return projetServiceImp.addAndAssignProjetToEntreprise(p, idEntreprise);
+    }
 
 }

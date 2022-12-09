@@ -1,5 +1,6 @@
 package tn.esprit.kaddem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.internal.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,20 +21,21 @@ public class Projet implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idProjet;
-    String Discription;
+    String description;
     @Temporal(TemporalType.DATE)
     private Date dateDebutProjet;
     @Temporal(TemporalType.DATE)
     private Date dateFinProjet;
-    @NotNull
-    @Column(length = 255, columnDefinition = "varchar(255) default 'NOTYETREVIEWED'")
+
     @Enumerated(EnumType.STRING)
     private Review review;
+    double prixProjet;
     @ManyToOne
     Equipe equipe;
+    @JsonIgnore
     @ManyToOne
-    Entreprise entreprise;
-    
+    Entreprise entrepriseP;
+
 
 
 }

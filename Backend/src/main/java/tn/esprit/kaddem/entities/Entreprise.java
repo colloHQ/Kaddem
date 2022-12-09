@@ -24,7 +24,7 @@ public class Entreprise implements Serializable {
     int numeroEntreprise;
     @Enumerated(EnumType.STRING)
     Secteur secteur;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "entrepriseE")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "entreprise")
     Set<Encadrant> encadrants;
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "entrepriseP")
     Set<Projet> projets;
