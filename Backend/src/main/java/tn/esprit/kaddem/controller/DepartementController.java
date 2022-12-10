@@ -7,6 +7,7 @@ import tn.esprit.kaddem.entities.Option;
 import tn.esprit.kaddem.services.IDepartementServices;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -53,4 +54,10 @@ public class DepartementController {
     public Set<Departement> retrieveDepartementByUniversite(@PathVariable("idU") Integer idUniversite){
         return departementServices.retrieveDepartementByUniversite(idUniversite);
     }
+
+    @GetMapping("/getRepartition/depart/{idDepart}")
+    public Map<Option, Long> getRepartitionEtudiantsParDepartement(@PathVariable("idDepart") Integer idDeprat){
+        return departementServices.getRepartitionEtudiantsParDepartement(idDeprat);
+    }
+
 }

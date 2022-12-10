@@ -1,10 +1,12 @@
 package tn.esprit.kaddem.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import tn.esprit.kaddem.entities.Encadrant;
+import tn.esprit.kaddem.entities.Option;
 import tn.esprit.kaddem.services.IEncadrantServices;
 
 @RestController
@@ -44,11 +46,19 @@ public class EncadrantController {
         return encadrantServices.getEncadrantsByNiveauEquipe(niveau);
     }
 
-    @PostMapping("/add/{idEquipe}")
+    @PostMapping("/add/equipe/{idEquipe}")
     public void addAndAssignEncadrantToEquipe(
         @PathVariable Integer idEquipe, 
         @RequestBody Encadrant en){
             encadrantServices.addAndAssignEncadrantToEquipe(idEquipe, en);
-        }
+    }
 
+    @PostMapping("/add/entreprise/{idEntreprise}")
+    public void addAndAssignEncadrantToEntreprise(
+        @PathVariable Long idEntreprise, 
+        @RequestBody Encadrant en){
+            encadrantServices.addAndAssignEncadrantToEntreprise(idEntreprise, en);
+    }
+
+   
 }
