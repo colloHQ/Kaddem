@@ -32,4 +32,7 @@ public class Entreprise implements Serializable {
     @JsonIgnore
     Set<Encadrant> encadrants;
 
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "entrepriseP")
+    Set<Projet> projets;
+
 }

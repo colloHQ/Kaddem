@@ -5,6 +5,8 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -15,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "encadrant")
-public class Encadrant {
+public class Encadrant  implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
