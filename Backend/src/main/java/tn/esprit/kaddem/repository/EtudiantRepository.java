@@ -14,6 +14,7 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
     Etudiant findEtudiantByPrenomEtudiant(String Prenom);
 
 
+
     @Query("SELECT etd FROM Etudiant etd"
             + " INNER JOIN etd.equips equipe "
             + " INNER JOIN DetailEquipe detailequip"
@@ -26,4 +27,7 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
     void updateEtudiantByOption(Option op, Long idEtudiant);
 
     Set<Etudiant> getEtudiantByDepartement(Integer idDepartement);
+
+
+    public Set<Etudiant> findByContratsArchive(Boolean archive);
 }
