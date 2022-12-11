@@ -23,7 +23,7 @@ public class ContratController {
     }
 
     @GetMapping("getById/{idContrat}")
-    public Contrat getContrat(@PathVariable("idContrat")Integer idContrat) {
+    public Contrat getContrat(@PathVariable("idContrat") Integer idContrat) {
         return contratServices.getContratById(idContrat);
     }
 

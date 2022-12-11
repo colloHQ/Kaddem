@@ -48,7 +48,7 @@ public class EtudiantController {
     }
 
     @GetMapping("/getByEquipeThematique/{thematique}")
-    public List<Etudiant> retrieveEtudiantByEquipeThematique(@PathVariable("thematique")  String thematique) {
+    public List<Etudiant> retrieveEtudiantByEquipeThematique(@PathVariable("thematique") String thematique) {
         return etudiantServices.retrieveEtudiantByEquipeThematique(thematique);
     }
 
@@ -58,7 +58,7 @@ public class EtudiantController {
     }
 
     @PutMapping("/assignToDepartement/{idEtudiant}/{idDepartement}")
-    public void assignEtudiantToDepartement(@PathVariable("idEtudiant")  Long idEtudiant, @PathVariable("idDepartement")  Integer idDepartement) {
+    public void assignEtudiantToDepartement(@PathVariable("idEtudiant") Long idEtudiant, @PathVariable("idDepartement") Integer idDepartement) {
         etudiantServices.assignEtudiantToDepartement(idEtudiant, idDepartement);
     }
 
