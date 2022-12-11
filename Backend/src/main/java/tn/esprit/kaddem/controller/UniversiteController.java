@@ -30,12 +30,12 @@ public class UniversiteController {
     }
 
     @DeleteMapping("/delete/{idUniversite}")
-    void deleteUniversite(@PathVariable ("idUniversite") Integer idUniversite) {
+    void deleteUniversite(@PathVariable("idUniversite") Integer idUniversite) {
         universiteServices.deleteUniversite(idUniversite);
     }
 
     @GetMapping("/getById/{idUniversite}")
-    public Universite getUniversite(@PathVariable ("idUniversite") Integer idUniversite) {
+    public Universite getUniversite(@PathVariable("idUniversite") Integer idUniversite) {
         return universiteServices.getUniversite(idUniversite);
     }
 

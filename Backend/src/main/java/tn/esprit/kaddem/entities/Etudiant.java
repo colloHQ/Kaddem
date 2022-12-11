@@ -20,8 +20,11 @@ public class Etudiant implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     long idEtudiant;
+
     String prenomEtudiant;
+
     String nomEtudiant;
     @Enumerated(EnumType.STRING)
     Option option;
@@ -31,7 +34,7 @@ public class Etudiant implements Serializable {
     Departement departement;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "etudiant")
+    @OneToMany(mappedBy = "etudiant")
     Set<Contrat> contrats;
 
     @ManyToMany(mappedBy = "etudiants", cascade = CascadeType.PERSIST)

@@ -1,5 +1,6 @@
 package tn.esprit.kaddem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,17 +16,28 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Projet implements Serializable{
-
+public class Projet implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idProjet;
-    String Discription;
+    long idProjet;
+    String description;
+    double prixProjet;
+
+    @JsonIgnore
+    @ManyToOne
+    Equipe equipe;
+    @JsonIgnore
+    @ManyToOne
+    Entreprise entrepriseP;
+
     @Temporal(TemporalType.DATE)
     private Date dateDebutProjet;
     @Temporal(TemporalType.DATE)
     private Date dateFinProjet;
+    @Enumerated(EnumType.STRING)
+    private Status status;
+    @Enumerated(EnumType.STRING)
+    private Review review;
 
-    @ManyToOne
-    Equipe equipe;
+
 }

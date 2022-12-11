@@ -17,21 +17,16 @@ import java.util.Date;
 @Table(name = "Contrat")
 public class Contrat implements Serializable {
 
+    boolean archive;
+    @ManyToOne
+    Etudiant etudiant;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idContrat;
-
-    boolean archive;
-
     @Temporal(TemporalType.DATE)
     private Date dateDebutContrat;
-
     @Temporal(TemporalType.DATE)
     private Date dateFinContrat;
-
     @Enumerated(EnumType.STRING)
-    private Specialité specialite;
-
-    @ManyToOne
-    Etudiant etudiant;
+    private Specialite specialite;
 }
