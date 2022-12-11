@@ -30,7 +30,7 @@ public class Contrat implements Serializable {
     private Date dateFinContrat;
 
     @Enumerated(EnumType.STRING)
-    private Specialité specialite;
+    private Specialite specialite;
 
     @ManyToOne
     Etudiant etudiant;
