@@ -51,4 +51,6 @@ public class EntrepriseController {
     public Entreprise getBestEntrepriseOfTheYear(@PathVariable("year") int y) {
         return entrepriseServiceImp.getBestEntrepriseOfTheYear(y);
     }
+
+    /* Integration  */
 }
