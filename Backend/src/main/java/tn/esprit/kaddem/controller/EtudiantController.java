@@ -38,17 +38,17 @@ public class EtudiantController {
     }
 
     @GetMapping("/getById/{idEtudiant}")
-    public Etudiant getEtudiant(@PathVariable ("idEtudiant") Long idEtudiant) {
+    public Etudiant getEtudiant(@PathVariable("idEtudiant") Long idEtudiant) {
         return etudiantServices.getEtudiantById(idEtudiant);
     }
 
     @GetMapping("/getByPrenom/{PrenomEtudiant}")
-    public Etudiant getEtudiantbyPrenomEtudiant(@PathVariable ("PrenomEtudiant") String PrenomEtudiant) {
+    public Etudiant getEtudiantbyPrenomEtudiant(@PathVariable("PrenomEtudiant") String PrenomEtudiant) {
         return etudiantServices.getEtudiantbyPrenomEtudiant(PrenomEtudiant);
     }
 
     @GetMapping("/getByEquipeThematique/{thematique}")
-    public List<Etudiant> retrieveEtudiantByEquipeThematique(@PathVariable ("thematique")  String thematique) {
+    public List<Etudiant> retrieveEtudiantByEquipeThematique(@PathVariable("thematique")  String thematique) {
         return etudiantServices.retrieveEtudiantByEquipeThematique(thematique);
     }
 
@@ -58,7 +58,7 @@ public class EtudiantController {
     }
 
     @PutMapping("/assignToDepartement/{idEtudiant}/{idDepartement}")
-    public void assignEtudiantToDepartement(@PathVariable ("idEtudiant")  Long idEtudiant, @PathVariable("idDepartement")  Integer idDepartement) {
+    public void assignEtudiantToDepartement(@PathVariable("idEtudiant")  Long idEtudiant, @PathVariable("idDepartement")  Integer idDepartement) {
         etudiantServices.assignEtudiantToDepartement(idEtudiant, idDepartement);
     }
 

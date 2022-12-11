@@ -21,7 +21,7 @@ public class DetailEquipeController {
     }
 
     @GetMapping("/getById/{idDetailEquipe}")
-    public DetailEquipe getDetailEquipe(@PathVariable ("idDetailEquipe") Integer idDetailEquipe) {
+    public DetailEquipe getDetailEquipe(@PathVariable("idDetailEquipe") Integer idDetailEquipe) {
         return detailEquipeServices.getDetailEquipeById(idDetailEquipe);
     }
 
@@ -36,12 +36,12 @@ public class DetailEquipeController {
     }
 
     @DeleteMapping("/delete/{idDetailEquipe}")
-    public void deleteDetailEquipe(@PathVariable ("idDetailEquipe") Integer idDetailEquipe) {
+    public void deleteDetailEquipe(@PathVariable("idDetailEquipe") Integer idDetailEquipe) {
         detailEquipeServices.deleteDetailEquipe(idDetailEquipe);
     }
 
     @GetMapping("/getByThematique/{Thematic}")
-    public List<DetailEquipe> findByThematique(@PathVariable ("Thematic") String Thematic) {
+    public List<DetailEquipe> findByThematique(@PathVariable("Thematic") String Thematic) {
         return detailEquipeServices.findByThematique(Thematic);
     }
 

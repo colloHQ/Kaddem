@@ -22,4 +22,10 @@ public interface EquipeRepository extends JpaRepository<Equipe, Integer> {
     List<Equipe> retriveEquipeByNiveauAndThematique(Niveau niveau, String thematique);
 
 
+    /* Added methods */
+    List<Equipe> findTop3ByOrderByRatingDesc();
+
+    /* List<Equipe> retrieve allCurrentProject */
+
+
 }

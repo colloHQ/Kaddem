@@ -1,12 +1,10 @@
 package tn.esprit.kaddem.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import tn.esprit.kaddem.entities.Encadrant;
-import tn.esprit.kaddem.entities.Option;
 import tn.esprit.kaddem.services.IEncadrantServices;
 
 @RestController

@@ -41,12 +41,12 @@ public class DepartementController {
     }
 
     @DeleteMapping("/delete/{idDepart}")
-    public void deleteDepartement(@PathVariable ("idDepart") Integer idDepart) {
+    public void deleteDepartement(@PathVariable("idDepart") Integer idDepart) {
         departementServices.deleteDepartement(idDepart);
     }
 
     @GetMapping("/getByEtudOpt/{opt}")
-    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable ("opt") Option opt) {
+    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("opt") Option opt){
         return departementServices.retrieveDepartementByOptionEtudiant(opt);
     }
 

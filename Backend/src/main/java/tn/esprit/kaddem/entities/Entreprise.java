@@ -1,14 +1,9 @@
 package tn.esprit.kaddem.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.Set;
 
@@ -17,6 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Entreprise implements Serializable {
 
     @Id
@@ -28,7 +24,7 @@ public class Entreprise implements Serializable {
     @Enumerated(EnumType.STRING)
     Secteur secteur;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "entrepriseP")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entrepriseP")
     Set<Projet> projets;
 
 }
