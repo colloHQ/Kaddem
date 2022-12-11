@@ -53,12 +53,6 @@ public class EncadrantController {
             encadrantServices.addAndAssignEncadrantToEquipe(idEquipe, en);
     }
 
-    @PostMapping("/add/entreprise/{idEntreprise}")
-    public void addAndAssignEncadrantToEntreprise(
-        @PathVariable Long idEntreprise, 
-        @RequestBody Encadrant en){
-            encadrantServices.addAndAssignEncadrantToEntreprise(idEntreprise, en);
-    }
 
    
 }

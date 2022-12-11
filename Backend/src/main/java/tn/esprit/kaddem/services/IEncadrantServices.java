@@ -16,8 +16,6 @@ public interface IEncadrantServices {
 
     Encadrant getEncadrantById(Integer idEncadrant);
 
-    void addAndAssignEncadrantToEntreprise(Long idEntreprise, Encadrant en);
-
     List<Encadrant> getEncadrantsByNiveauEquipe(String niveau);
 
     void addAndAssignEncadrantToEquipe(Integer idEquipe, Encadrant en);

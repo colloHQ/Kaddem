@@ -7,11 +7,9 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import tn.esprit.kaddem.entities.Encadrant;
-import tn.esprit.kaddem.entities.Entreprise;
 import tn.esprit.kaddem.entities.Equipe;
 import tn.esprit.kaddem.entities.Niveau;
 import tn.esprit.kaddem.repository.EncadrantRepository;
-import tn.esprit.kaddem.repository.EntrepriseRepository;
 import tn.esprit.kaddem.repository.EquipeRepository;
 
 @Service
@@ -20,7 +18,6 @@ public class EncadrantServiceImp implements IEncadrantServices{
 
     EncadrantRepository encadrantRepository;
     EquipeRepository equipeRepository;
-    EntrepriseRepository entrepriseRepository;
 
     @Override
     public List<Encadrant> getAllEncadrants() {
@@ -45,13 +42,6 @@ public class EncadrantServiceImp implements IEncadrantServices{
     @Override
     public Encadrant getEncadrantById(Integer idEncadrant) {
         return encadrantRepository.findById(idEncadrant).orElse(null);
-    }
-
-    @Override
-    public void addAndAssignEncadrantToEntreprise(Long idEntreprise, Encadrant en) {
-        Entreprise entreprise = entrepriseRepository.findById(idEntreprise).orElse(null);
-        encadrantRepository.save(en);
-        en.setEntreprise(entreprise);
     }
 
     @Override

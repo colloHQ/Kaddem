@@ -28,10 +28,6 @@ public class Entreprise implements Serializable {
     @Enumerated(EnumType.STRING)
     Secteur secteur;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "entreprise")
-    @JsonIgnore
-    Set<Encadrant> encadrants;
-
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "entrepriseP")
     Set<Projet> projets;
 

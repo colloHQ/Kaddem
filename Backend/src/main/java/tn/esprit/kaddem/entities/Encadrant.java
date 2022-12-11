@@ -30,6 +30,4 @@ public class Encadrant  implements Serializable {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "encadrant")
     Set<Equipe> equipes;
 
-    @ManyToOne
-    Entreprise entreprise;
 }
