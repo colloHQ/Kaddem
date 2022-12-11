@@ -22,12 +22,14 @@ public class Projet implements Serializable {
     long idProjet;
     String description;
     double prixProjet;
+
     @JsonIgnore
     @ManyToOne
     Equipe equipe;
     @JsonIgnore
     @ManyToOne
     Entreprise entrepriseP;
+
     @Temporal(TemporalType.DATE)
     private Date dateDebutProjet;
     @Temporal(TemporalType.DATE)

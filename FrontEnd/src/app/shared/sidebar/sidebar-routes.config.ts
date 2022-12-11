@@ -7,7 +7,10 @@ export const ROUTES: RouteInfo[] = [
 
     ]},
 
-
+    { path: '/univDepart', title: 'Uni & Dep', icon: 'bx bx-cookie', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+        { path: '/univDepart/depart/home', title: 'Departements', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        { path: '/univDepart/univ/home', title: 'Universites', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    ]},
 
 
     { path: '/widgets', title: 'Widgets', icon: 'bx bx-cookie', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []},

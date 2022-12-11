@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/Contrat")
 @AllArgsConstructor
+
 public class ContratController {
 
 
