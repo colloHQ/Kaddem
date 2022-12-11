@@ -18,19 +18,32 @@ import java.util.Set;
 @Table(name = "Equipe")
 public class Equipe implements Serializable {
 
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "equipe")
+    Set<Projet> projets;
+    @ManyToOne
+    Encadrant encadrant;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEquipe;
     private String nomEquipe;
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
-
     @OneToOne
     private DetailEquipe detailEquipe;
-
     @ManyToMany
     @JsonIgnore
     private Set<Etudiant> etudiants;
+    /*--  Added  */
+    @Column(nullable = true, length = 64)
+    private String photos;
+    private float rating;
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (this.photos == null) return null;
+
+        return "/equipe-photos/" + idEquipe + "/" + photos;
+    }
 
 
 }

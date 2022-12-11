@@ -51,8 +51,8 @@ public class DepartementServiceImp implements IDepartementServices {
         return departementRepository.retrieveDepartementByOptionEtudiant(opt);
     }
 
-   @Override
-    public Set<Departement> retrieveDepartementByUniversite(Integer idUniversite){
+    @Override
+    public Set<Departement> retrieveDepartementByUniversite(Integer idUniversite) {
         Universite uni = universiteRepository.findById(idUniversite).orElse(null);
         return uni.getDepartements();
     }

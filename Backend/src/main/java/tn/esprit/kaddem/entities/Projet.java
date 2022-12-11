@@ -1,5 +1,6 @@
 package tn.esprit.kaddem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,19 +15,26 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Contrat")
-public class Contrat implements Serializable {
 
-    boolean archive;
-    @ManyToOne
-    Etudiant etudiant;
+public class Projet implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idContrat;
+    long idProjet;
+    String description;
+    double prixProjet;
+    @ManyToOne
+    Equipe equipe;
+    @JsonIgnore
+    @ManyToOne
+    Entreprise entrepriseP;
     @Temporal(TemporalType.DATE)
-    private Date dateDebutContrat;
+    private Date dateDebutProjet;
     @Temporal(TemporalType.DATE)
-    private Date dateFinContrat;
+    private Date dateFinProjet;
     @Enumerated(EnumType.STRING)
-    private Specialité specialite;
+    private Status status;
+    @Enumerated(EnumType.STRING)
+    private Review review;
+
+
 }

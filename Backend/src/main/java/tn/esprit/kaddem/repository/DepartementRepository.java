@@ -7,7 +7,6 @@ import tn.esprit.kaddem.entities.Departement;
 import tn.esprit.kaddem.entities.Option;
 
 import java.util.List;
-import java.util.Set;
 
 public interface DepartementRepository extends JpaRepository<Departement, Integer> {
 

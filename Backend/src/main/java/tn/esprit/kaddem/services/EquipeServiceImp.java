@@ -65,5 +65,12 @@ public class EquipeServiceImp implements IEquipeServices {
         return equipeRepository.retriveEquipeByNiveauAndThematique(niveau, thematique);
     }
 
+    @Override
+    public float updateRating(Integer idEquipe) {
+
+
+        return 1;
+    }
+
 
 }

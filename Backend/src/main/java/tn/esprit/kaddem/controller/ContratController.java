@@ -23,7 +23,7 @@ public class ContratController {
     }
 
     @GetMapping("getById/{idContrat}")
-    public Contrat getContrat(@PathVariable ("idContrat")Integer idContrat) {
+    public Contrat getContrat(@PathVariable("idContrat") Integer idContrat) {
         return contratServices.getContratById(idContrat);
     }
 
@@ -38,12 +38,12 @@ public class ContratController {
     }
 
     @DeleteMapping("delete/{idContrat}")
-    public void deleteContrat(@PathVariable ("idContrat") Integer idContrat) {
+    public void deleteContrat(@PathVariable("idContrat") Integer idContrat) {
         contratServices.deleteContrat(idContrat);
     }
 
     @PostMapping("/affectToEtudiant/{prenomE}")
-    public Contrat affectContratToEtudiant(@RequestBody Contrat ce, String nomE, @PathVariable ("prenomE") String prenomE) {
+    public Contrat affectContratToEtudiant(@RequestBody Contrat ce, String nomE, @PathVariable("prenomE") String prenomE) {
 
         return contratServices.affectContratToEtudiant(ce, nomE, prenomE);
 

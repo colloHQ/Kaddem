@@ -20,7 +20,7 @@ public interface IDepartementServices {
 
     List<Departement> retrieveDepartementByOptionEtudiant(Option op);
 
-     Set<Departement> retrieveDepartementByUniversite(Integer idUniversite);
+    Set<Departement> retrieveDepartementByUniversite(Integer idUniversite);
 
 
 }

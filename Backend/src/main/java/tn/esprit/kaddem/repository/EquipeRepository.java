@@ -1,7 +1,6 @@
 package tn.esprit.kaddem.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import tn.esprit.kaddem.entities.Equipe;
 import tn.esprit.kaddem.entities.Niveau;
@@ -21,6 +20,12 @@ public interface EquipeRepository extends JpaRepository<Equipe, Integer> {
             + "ON detail.equipe = equipe.idEquipe WHERE detail.thematique =:thematique "
             + "and equipe.niveau =:niveau")
     List<Equipe> retriveEquipeByNiveauAndThematique(Niveau niveau, String thematique);
+
+
+    /* Added methods */
+    List<Equipe> findTop3ByOrderByRatingDesc();
+
+    /* List<Equipe> retrieve allCurrentProject */
 
 
 }
