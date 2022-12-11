@@ -2,12 +2,12 @@ package tn.esprit.kaddem.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.kaddem.entities.Entreprise;
-import tn.esprit.kaddem.entities.Projet;
-import tn.esprit.kaddem.entities.Review;
+import tn.esprit.kaddem.entities.*;
 import tn.esprit.kaddem.services.EntrepriseServiceImp;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/Entreprise")
@@ -52,5 +52,18 @@ public class EntrepriseController {
         return entrepriseServiceImp.getBestEntrepriseOfTheYear(y);
     }
 
-    /* Integration  */
+    @GetMapping("/PourcentageDeparticipationSelonSecteur/{secteur}")
+    public String PourcentageDeparticipationSelonSecteur(@PathVariable("secteur") Secteur secteur){
+        return entrepriseServiceImp.PourcentageDeparticipationSelonSecteur(secteur);
+    }
+
+    @GetMapping("EntrepriseWithNoProjets")
+    List<Entreprise> findByProjetsIsNull(){
+        return entrepriseServiceImp.findByProjetsIsNull();
+    }
+
+    @GetMapping("/GetAllEquipsOfAllEntreprises")
+    public Map<String, Set<String>> GetAllEquipsOfAllEntreprises(){
+        return entrepriseServiceImp.GetAllEquipsOfAllEntreprises();
+    }
 }

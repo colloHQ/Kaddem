@@ -22,6 +22,7 @@ public class Projet implements Serializable {
     long idProjet;
     String description;
     double prixProjet;
+    @JsonIgnore
     @ManyToOne
     Equipe equipe;
     @JsonIgnore
