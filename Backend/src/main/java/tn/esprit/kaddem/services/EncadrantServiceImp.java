@@ -3,6 +3,7 @@ package tn.esprit.kaddem.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import tn.esprit.kaddem.entities.Niveau;
 import tn.esprit.kaddem.repository.EncadrantRepository;
 import tn.esprit.kaddem.repository.EquipeRepository;
 
+@Cacheable(value = "encadrant")
 @Service
 @AllArgsConstructor
 public class EncadrantServiceImp implements IEncadrantServices{
