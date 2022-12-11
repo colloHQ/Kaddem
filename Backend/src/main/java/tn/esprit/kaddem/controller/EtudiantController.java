@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.kaddem.entities.Etudiant;
 import tn.esprit.kaddem.entities.Option;
+import tn.esprit.kaddem.services.IContratServices;
 import tn.esprit.kaddem.services.IEtudiantServices;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.Set;
 public class EtudiantController {
 
     IEtudiantServices etudiantServices;
+    IContratServices contratServices;
 
     @GetMapping("/getAll")
     public List<Etudiant> getAllEtudiant() {
@@ -34,7 +36,9 @@ public class EtudiantController {
 
     @DeleteMapping("/delete/{idEtudiant}")
     void deleteETudiant(@PathVariable("idEtudiant") Long idEtudiant) {
+        contratServices.onDeleteEtudiant(idEtudiant);
         etudiantServices.deleteETudiant(idEtudiant);
+
     }
 
     @GetMapping("/getById/{idEtudiant}")
