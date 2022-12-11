@@ -1,5 +1,6 @@
 package tn.esprit.kaddem.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.kaddem.entities.Etudiant;
@@ -76,4 +77,21 @@ public class EtudiantController {
     public Set<Etudiant> getEtudiantByDepartement(@PathVariable("idD") Integer idDepartement) {
         return etudiantServices.getEtudiantByDepartement(idDepartement);
     }
+
+    @GetMapping("/nbrEtud/{idDepart}")
+    public Long getNbrEtudiant(@PathVariable("idDepart") Integer idDepartement){
+        return etudiantServices.nbrEtudByOneDepart(idDepartement);
+    }
+
+    @GetMapping("/getByArchive/{archive}")
+    public Set<Etudiant> findByContratsArchive(@PathVariable("archive") Boolean archive){
+
+        return etudiantServices.findByContratsArchive(archive);
+    }
+
+    @GetMapping("/findByProjet/{idEtu}")
+    public List<Projet> findByProjet(@PathVariable("idEtu") int idEtudiant){
+        return etudiantServices.getProjets(idEtudiant);
+    }
+
 }

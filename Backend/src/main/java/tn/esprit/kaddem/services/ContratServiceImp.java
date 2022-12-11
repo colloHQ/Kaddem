@@ -71,6 +71,7 @@ public class ContratServiceImp implements IContratServices {
     }
 
 
+
     @Override
     public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
         float CA = 0;

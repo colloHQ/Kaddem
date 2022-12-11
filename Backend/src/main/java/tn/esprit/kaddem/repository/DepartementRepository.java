@@ -10,8 +10,10 @@ import java.util.List;
 
 public interface DepartementRepository extends JpaRepository<Departement, Integer> {
 
+
     @Query("SELECT dep FROM Departement dep INNER JOIN Etudiant etd ON etd.departement = dep.idDepartement WHERE etd.option =:op ")
     List<Departement> retrieveDepartementByOptionEtudiant(@Param("op") Option op);
+
 
     //Set<Departement> retrieveDepartementByUniversite(Integer idUniversite);
 
