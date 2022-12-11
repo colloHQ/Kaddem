@@ -46,12 +46,12 @@ public class DepartementController {
     }
 
     @GetMapping("/getByEtudOpt/{opt}")
-    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("opt") Option opt){
+    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("opt") Option opt) {
         return departementServices.retrieveDepartementByOptionEtudiant(opt);
     }
 
     @GetMapping("retrieveDepartementByUniversite/{idU}")
-    public Set<Departement> retrieveDepartementByUniversite(@PathVariable("idU") Integer idUniversite){
+    public Set<Departement> retrieveDepartementByUniversite(@PathVariable("idU") Integer idUniversite) {
         return departementServices.retrieveDepartementByUniversite(idUniversite);
     }
 
