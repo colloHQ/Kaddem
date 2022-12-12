@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -30,10 +31,8 @@ public class Projet implements Serializable {
     @ManyToOne
     Entreprise entrepriseP;
 
-    @Temporal(TemporalType.DATE)
-    private Date dateDebutProjet;
-    @Temporal(TemporalType.DATE)
-    private Date dateFinProjet;
+    private LocalDate dateDebutProjet;
+    private LocalDate dateFinProjet;
     @Enumerated(EnumType.STRING)
     private Status status;
     @Enumerated(EnumType.STRING)

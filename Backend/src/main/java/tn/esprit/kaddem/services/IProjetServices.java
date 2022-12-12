@@ -19,6 +19,12 @@ public interface IProjetServices {
 
     List<Projet> getProjetOfYear(int y);
 
-    Projet getProjetOrdredBYDateFin();
+    List<Projet> getProjetOrdredBYDateFin();
+
+    double getPrixParEntreprise(Long idEntreprise);
+
+    List<Object> getmapPrixForEntreprise();
+
+    void majorationProjet();
 
 }
