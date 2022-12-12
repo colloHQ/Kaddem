@@ -1,6 +1,7 @@
 package tn.esprit.kaddem.services;
 
 import tn.esprit.kaddem.entities.Equipe;
+import tn.esprit.kaddem.entities.Etudiant;
 import tn.esprit.kaddem.entities.Niveau;
 
 import java.util.List;
@@ -30,6 +31,10 @@ public interface IEquipeServices {
     float updateRating(Integer idEquipe);
 
     void updateNiveau();
+    List<Equipe> findEquipeByOrderByNomEquipeDesc();
+    List<Equipe> findEquipeByOrderByNomEquipeAsc();
 
+        /**/
+    int nbrAlumni(Integer idEquipe);
 
 }

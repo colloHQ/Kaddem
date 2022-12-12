@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import tn.esprit.kaddem.entities.Equipe;
-import tn.esprit.kaddem.entities.Niveau;
-import tn.esprit.kaddem.entities.Projet;
+import tn.esprit.kaddem.entities.*;
 import tn.esprit.kaddem.repository.EquipeRepository;
 import tn.esprit.kaddem.repository.ProjetRepository;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -119,6 +119,31 @@ public class EquipeServiceImp implements IEquipeServices {
             }
         }
 
+    }
+    @Override
+    public List<Equipe> findEquipeByOrderByNomEquipeDesc() {
+        return equipeRepository.findEquipeByOrderByNomEquipeDesc();
+    }
+
+    @Override
+    public   List<Equipe> findEquipeByOrderByNomEquipeAsc(){
+        return equipeRepository.findEquipeByOrderByNomEquipeAsc();
+    }
+
+    @Override
+    public int nbrAlumni(Integer idEquipe) {
+        int count =0;
+        Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
+        Set<Etudiant> Etudiants = equipe.getEtudiants();
+        for ( Etudiant e : Etudiants){
+            Set<Contrat> contracts = e.getContrats();
+            for ( Contrat c : contracts){
+                if ( c.getDateFinContrat()!=null){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
 

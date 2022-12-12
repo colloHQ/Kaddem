@@ -107,8 +107,23 @@ public class EquipeController {
     public List<Equipe> findEquipeByN(@PathVariable("nv") Niveau nv) {
         return equipeRepository.findEquipesByNiveauLike(nv);
     }
+    @GetMapping("/sortDesc")
+    List<Equipe> sortDescEquipe() {
+        return equipeServices.findEquipeByOrderByNomEquipeDesc();
+    }
+    @GetMapping("/sortAsc")
+    List<Equipe> sortAscEquipe() {
+        return equipeServices.findEquipeByOrderByNomEquipeAsc();
+    }
 
+     @GetMapping("/nbrByTheme/{th}")
+     Equipe bestTeamPerNiveau(@PathVariable("th") String thematique){
+        return equipeRepository.bestTeamPerThematique(thematique);
+     }
 
+     @GetMapping("/nbrAlumni/{idEquipe}")
+     public int nbrAlumni(@PathVariable("idEquipe") Integer idEquipe) {
+        return equipeServices.nbrAlumni(idEquipe);
 
-
+     }
 }
