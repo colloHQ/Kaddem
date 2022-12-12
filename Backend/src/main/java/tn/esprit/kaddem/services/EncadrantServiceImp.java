@@ -1,7 +1,11 @@
 package tn.esprit.kaddem.services;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -13,7 +17,6 @@ import tn.esprit.kaddem.entities.Niveau;
 import tn.esprit.kaddem.repository.EncadrantRepository;
 import tn.esprit.kaddem.repository.EquipeRepository;
 
-@Cacheable(value = "encadrant")
 @Service
 @AllArgsConstructor
 public class EncadrantServiceImp implements IEncadrantServices{
@@ -21,6 +24,7 @@ public class EncadrantServiceImp implements IEncadrantServices{
     EncadrantRepository encadrantRepository;
     EquipeRepository equipeRepository;
 
+    @Cacheable(value = "encadrant")
     @Override
     public List<Encadrant> getAllEncadrants() {
         return encadrantRepository.findAll();
@@ -64,5 +68,27 @@ public class EncadrantServiceImp implements IEncadrantServices{
         equipe.setEncadrant(en);
         equipeRepository.save(equipe);        
     }
+
+    @Override
+    public Map<String, Double> calculPrimeAnnuelEncadrant() {
+        Map<String, Double> primeAnnuelParEncadrant = new HashMap<>();
+        List<Encadrant> encadrants = encadrantRepository.findAll();
+        encadrants.forEach( en -> {
+            List<Double> primeAnnuelParProjet = new ArrayList<>();
+            en.getEquipes().forEach(eq -> {
+                eq.getProjets().forEach( pr -> {
+                    if(eq.getNiveau() == Niveau.JUNIOR) primeAnnuelParProjet.add(pr.getPrixProjet() * 0.1);
+                    else if(eq.getNiveau() == Niveau.SENIOR) primeAnnuelParProjet.add(pr.getPrixProjet() * 0.2);
+                    else primeAnnuelParProjet.add(pr.getPrixProjet() * 0.3);
+                });
+            });
+            primeAnnuelParEncadrant.put(
+                en.getNomEncadrant(), 
+                primeAnnuelParProjet.stream().mapToDouble(Double::valueOf).sum() / primeAnnuelParProjet.size());
+        });
+        return primeAnnuelParEncadrant;
+    }
+
+    
     
 }
