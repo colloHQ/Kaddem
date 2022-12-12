@@ -24,6 +24,7 @@ public class EtudiantServiceImp implements IEtudiantServices {
     //slide15
     EquipeRepository equipeRepository;
     ContratRepository contratRepository;
+    private final ProjetRepository projetRepository;
 
     @Override
     public List<Etudiant> getALLEtudiant() {
@@ -136,9 +137,19 @@ public class EtudiantServiceImp implements IEtudiantServices {
         return projets;
     }
 
+    @Override
+    public Double getRevenueEtudiantByProjets(long idEtudiant) {
+        //Etudiant etudiant= etudiantRepository.findById(idEtudiant).orElse(null);
+        List<Double> revenueEtuByProjets=new ArrayList<>();
+        List<Equipe> equipes= equipeRepository.findEquipeByEtudiantsIdEtudiant(idEtudiant);
+        equipes.forEach(equipe -> {
+            equipe.getProjets().forEach(projet -> {
+               revenueEtuByProjets.add(projet.getPrixProjet()/equipe.getEtudiants().size());
+            });
+        });
 
-
-
+        return revenueEtuByProjets.stream().mapToDouble(Double::valueOf).sum();
+    }
 
 
 }
