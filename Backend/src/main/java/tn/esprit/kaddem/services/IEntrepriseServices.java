@@ -1,10 +1,11 @@
 package tn.esprit.kaddem.services;
 
-import tn.esprit.kaddem.entities.Entreprise;
-import tn.esprit.kaddem.entities.Projet;
-import tn.esprit.kaddem.entities.Review;
+import tn.esprit.kaddem.entities.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public interface IEntrepriseServices {
 
@@ -21,5 +22,11 @@ public interface IEntrepriseServices {
     Projet reviewProjet(Long idProjet, Review review);
 
     Entreprise getBestEntrepriseOfTheYear(int y);
+
+    String PourcentageDeparticipationSelonSecteur(Secteur secteur);
+
+    List<Entreprise> findByProjetsIsNull();
+
+    Map<String, Set<String>> GetAllEquipsOfAllEntreprises();
 
 }
