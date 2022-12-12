@@ -10,7 +10,9 @@ import tn.esprit.kaddem.repository.EntrepriseRepository;
 import tn.esprit.kaddem.repository.EquipeRepository;
 import tn.esprit.kaddem.repository.ProjetRepository;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -64,7 +66,38 @@ public class ProjetServiceImp implements IProjetServices {
     }
 
     @Override
-    public Projet getProjetOrdredBYDateFin() {
+    public List<Projet> getProjetOrdredBYDateFin() {
         return projetRepository.findAllByOrderByDateFinProjetAsc();
+    }
+
+    @Override
+    public double getPrixParEntreprise(Long idEntreprise) {
+        List<Projet> projet;
+        projet = projetRepository.findAll().stream()
+                .filter(p -> p.getEntrepriseP().getIdEntreprise() == idEntreprise.valueOf(idEntreprise))
+                .collect(Collectors.toList());
+
+
+        return projet.stream().collect(Collectors.summingDouble(p -> p.getPrixProjet()));
+    }
+
+    @Override
+    public List<Object> getmapPrixForEntreprise() {
+        return projetRepository.getmapPrixForEntreprise();
+    }
+
+    @Override
+    public void majorationProjet() {
+        LocalDate Today = LocalDate.now();
+        List<Projet> allProjet = projetRepository.findAll();
+        for (Projet projet : allProjet) {
+            if ((projet.getDateFinProjet().compareTo(Today) < 0) && (projet.getStatus().toString().equals("InProgress"))) {
+                projet.setPrixProjet((projet.getPrixProjet() * 60) / 100);
+                projetRepository.save(projet);
+
+            }
+
+
+        }
     }
 }

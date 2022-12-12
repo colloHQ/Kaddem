@@ -20,7 +20,7 @@ public class Encadrant implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long idEncadrant;
+    int idEncadrant;
     String prenomEncadrant;
     String nomEncadrant;
     Date dateEmbauche;

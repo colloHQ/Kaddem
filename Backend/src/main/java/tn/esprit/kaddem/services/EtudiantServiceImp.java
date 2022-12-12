@@ -3,14 +3,13 @@ package tn.esprit.kaddem.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.kaddem.entities.*;
-import tn.esprit.kaddem.repository.ContratRepository;
-import tn.esprit.kaddem.repository.DepartementRepository;
-import tn.esprit.kaddem.repository.EquipeRepository;
-import tn.esprit.kaddem.repository.EtudiantRepository;
+import tn.esprit.kaddem.repository.*;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -20,10 +19,12 @@ public class EtudiantServiceImp implements IEtudiantServices {
 
     EtudiantRepository etudiantRepository;
     DepartementRepository departementRepository;
+    ProjetRepo projetRepo;
 
     //slide15
     EquipeRepository equipeRepository;
     ContratRepository contratRepository;
+    private final ProjetRepository projetRepository;
 
     @Override
     public List<Etudiant> getALLEtudiant() {
@@ -97,6 +98,57 @@ public class EtudiantServiceImp implements IEtudiantServices {
     public Set<Etudiant> getEtudiantByDepartement(Integer idDepartement) {
         Departement dep = departementRepository.findById(idDepartement).orElse(null);
         return dep.getEtudiants();
+    }
+
+    @Override
+    public Long nbrEtudByOneDepart(Integer idDepartement) {
+            long nbrEtu=0 ;
+            Departement d = this.departementRepository.findById(idDepartement).orElse(null);
+            return nbrEtu = d.getEtudiants().stream().count();
+        }
+
+    @Override
+    public Set<Etudiant> findByContratsArchive(Boolean archive) {
+        return etudiantRepository.findByContratsArchive(archive);
+    }
+
+
+   /* public Long nbrEtudByDepart() {
+        long nbrEtu=0 ;
+        List<Departement> Listdepts = departementRepository.findAll();
+
+        for(int i=0;i<Listdepts.size();i++){
+            return nbrEtu = Listdepts.get(i).getEtudiants()
+                    .stream().map(e -> e.getDepartement()).count();
+
+        }
+        return nbrEtu;
+    }
+
+    */
+
+
+    public List<Projet> getProjets(long idEtudiant){
+
+        Etudiant etu = etudiantRepository.findById(idEtudiant).orElse(null);
+        Set<Equipe> equipes = etu.getEquips();
+        List <Projet> projets = new ArrayList<>();
+        equipes.stream().forEach(equipe -> equipe.getProjets().stream().forEach(p ->projets.add(p)));
+        return projets;
+    }
+
+    @Override
+    public Double getRevenueEtudiantByProjets(long idEtudiant) {
+        //Etudiant etudiant= etudiantRepository.findById(idEtudiant).orElse(null);
+        List<Double> revenueEtuByProjets=new ArrayList<>();
+        List<Equipe> equipes= equipeRepository.findEquipeByEtudiantsIdEtudiant(idEtudiant);
+        equipes.forEach(equipe -> {
+            equipe.getProjets().forEach(projet -> {
+               revenueEtuByProjets.add(projet.getPrixProjet()/equipe.getEtudiants().size());
+            });
+        });
+
+        return revenueEtuByProjets.stream().mapToDouble(Double::valueOf).sum();
     }
 
 

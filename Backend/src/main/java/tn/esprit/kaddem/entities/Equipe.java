@@ -18,8 +18,7 @@ import java.util.Set;
 @Table(name = "Equipe")
 public class Equipe implements Serializable {
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "equipe")
-    Set<Projet> projets;
+
     @ManyToOne
     Encadrant encadrant;
     @Id
@@ -44,6 +43,10 @@ public class Equipe implements Serializable {
 
         return "/equipe-photos/" + idEquipe + "/" + photos;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipe")
+    @JsonIgnore
+    private Set<Projet> projets;
 
 
 }

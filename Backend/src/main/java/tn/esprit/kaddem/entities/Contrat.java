@@ -28,5 +28,5 @@ public class Contrat implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateFinContrat;
     @Enumerated(EnumType.STRING)
-    private Specialité specialite;
+    private Specialite specialite;
 }

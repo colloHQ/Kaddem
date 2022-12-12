@@ -2,15 +2,13 @@ package tn.esprit.kaddem.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.kaddem.entities.Entreprise;
-import tn.esprit.kaddem.entities.Projet;
-import tn.esprit.kaddem.entities.Review;
+import tn.esprit.kaddem.entities.*;
 import tn.esprit.kaddem.repository.EntrepriseRepository;
 import tn.esprit.kaddem.repository.EquipeRepository;
 import tn.esprit.kaddem.repository.ProjetRepository;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -85,4 +83,46 @@ public class EntrepriseServiceImp implements IEntrepriseServices {
 
         return bestEntreprise;
     }
+
+    @Override
+    public String  PourcentageDeparticipationSelonSecteur(Secteur secteur) {
+
+        List<Entreprise> AllEpseOfSameSecteur = entrepriseRepository.findAllBySecteur(secteur);
+        String statistique="";
+        Long nbProjetDeSecteur = projetRepository.findAll().stream()
+                .filter(projet -> projet.getEntrepriseP().getSecteur().compareTo(secteur)==0).count();
+        System.out.println(nbProjetDeSecteur);
+        for (Entreprise e : AllEpseOfSameSecteur){
+            int Pe = e.getProjets().size();
+            double p = (Pe*100)/nbProjetDeSecteur;
+            statistique+="L'entreprise "+ e.getNomEntreprise()+" participe avec "+Pe
+            +" projets dans le secteur "+secteur+". pourcentage : "+p+"% \n";
+        }
+
+        return statistique;
+    }
+
+    @Override
+    public List<Entreprise> findByProjetsIsNull() {
+        return entrepriseRepository.findByProjetsIsNull();
+    }
+
+    @Override
+    public Map<String, Set<String>> GetAllEquipsOfAllEntreprises() {
+        Map<String,Set<String>> equipsOfEntreprise = new HashMap<>();
+        List<Entreprise> allE = entrepriseRepository.findAll();
+        allE.forEach(entreprise -> {
+            Set<Projet> Eprojets = entreprise.getProjets();
+            Set<String> NameEquips = new HashSet<>();
+            Eprojets.forEach(projet -> {
+                NameEquips.add(projet.getEquipe().getNomEquipe());
+            });
+                  equipsOfEntreprise.put(entreprise.getNomEntreprise(),NameEquips);
+        });
+
+
+        return equipsOfEntreprise;
+    }
+
+
 }
