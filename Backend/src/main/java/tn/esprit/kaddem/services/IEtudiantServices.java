@@ -40,4 +40,6 @@ public interface IEtudiantServices {
 
     public List<Projet> getProjets(long idEtudiant);
 
+    public Double getRevenueEtudiantByProjets(long idEtudiant);
+
 }
