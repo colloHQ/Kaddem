@@ -51,46 +51,6 @@ public class EntrepriseServiceImp implements IEntrepriseServices {
         p.setReview(review);
         return projetRepository.save(p);
     }
-
-/*    @Override
-    public String getReviewEquipe(Integer idEquipe) {
-        Equipe e = equipeRepository.findById(idEquipe).orElse(null);
-        List<Projet> ProjetsOfEquipe = projetRepository.findProjetsByEquipeIdEquipe(e.getIdEquipe());
-        float stat;
-        String ReviewEquipe = "";
-        int score = 0;
-        for(int i=0;i<ProjetsOfEquipe.size();i++) {
-            Projet p = ProjetsOfEquipe.get(i);
-            if (p.getReview().toString().equals("VERYBAD")) {
-                score = score + 1;
-            } else if (p.getReview().toString().equals("BAD")) {
-                score = score + 2;
-            } else if (p.getReview().toString().equals("AVERAGE")) {
-                score = score + 3;
-            } else if (p.getReview().toString().equals("GOOD")) {
-                score = score + 4;
-            } else if (p.getReview().toString().equals("EXCELLENT")) {
-                score = score + 5;
-            }
-        }
-        System.out.println(score);
-        stat = score / ProjetsOfEquipe.size();
-        System.out.println(stat);
-        if( stat == 1){
-            ReviewEquipe = "L'equipe " + e.getNomEquipe() + " a le Review : VERYBAD";
-        } else if( stat == 2){
-            ReviewEquipe = "L'equipe " + e.getNomEquipe() + " a le Review : BAD";
-        }else if( stat == 3){
-            ReviewEquipe = "L'equipe " + e.getNomEquipe() + " a le Review : AVERAGE";
-        }else if( stat == 4){
-            ReviewEquipe = "L'equipe " + e.getNomEquipe() + " a le Review : GOOD";
-        }else if( stat == 5){
-            ReviewEquipe = "L'equipe " + e.getNomEquipe() + " a le Review : EXCELLENT";
-        }
-        return ReviewEquipe;
-    }*/
-
-
     @Override
     public Entreprise getBestEntrepriseOfTheYear(int y) {
         HashMap<Long, Integer> EnbP = new HashMap<>();

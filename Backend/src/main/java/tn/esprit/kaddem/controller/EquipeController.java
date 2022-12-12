@@ -1,6 +1,7 @@
 package tn.esprit.kaddem.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -95,10 +96,19 @@ public class EquipeController {
     }
 
 
-    @PutMapping("/updateRating")
-    public void updateRating(int idEquipe) {
-
+    @PostMapping("/updateRating/{idEquipe}")
+    public void updateRating(@PathVariable("idEquipe") int idEquipe) {
+        Equipe e = equipeServices.getEquipe(idEquipe);
+        e.setRating(equipeServices.updateRating(idEquipe));
+        equipeRepository.save(e);
     }
+
+    @GetMapping("/equipeByN/{nv}")
+    public List<Equipe> findEquipeByN(@PathVariable("nv") Niveau nv) {
+        return equipeRepository.findEquipesByNiveauLike(nv);
+    }
+
+
 
 
 }

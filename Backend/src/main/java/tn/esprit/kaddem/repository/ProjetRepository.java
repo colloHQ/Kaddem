@@ -11,5 +11,6 @@ public interface ProjetRepository extends JpaRepository<Projet, Long> {
     List<Projet> getProjetOfYear(int y);
 
     Projet findAllByOrderByDateFinProjetAsc();
+    List<Projet> findProjetsByEquipeIdEquipe(Integer idEquipe);
 
 }

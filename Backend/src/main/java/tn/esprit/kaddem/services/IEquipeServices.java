@@ -26,7 +26,10 @@ public interface IEquipeServices {
 
     List<Equipe> retriveEquipeByNiveauAndThematique(Niveau niveau, String thematique);
 
+
     float updateRating(Integer idEquipe);
+
+    void updateNiveau();
 
 
 }
