@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import tn.esprit.kaddem.entities.Equipe;
 import tn.esprit.kaddem.entities.Niveau;
-import tn.esprit.kaddem.entities.Specialité;
 
 import java.util.List;
 

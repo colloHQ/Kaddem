@@ -12,6 +12,7 @@ public interface ProjetRepository extends JpaRepository<Projet, Long> {
 
 
     List<Projet> findAllByOrderByDateFinProjetAsc();
+    List<Projet> findProjetsByEquipeIdEquipe(Integer idEquipe);
 
     @Query("SELECT pr.entrepriseP.idEntreprise ,sum(pr.prixProjet) " +
             "from Projet pr " +
