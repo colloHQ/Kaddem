@@ -1,6 +1,7 @@
 package tn.esprit.kaddem.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
@@ -51,6 +52,9 @@ public class EncadrantController {
             encadrantServices.addAndAssignEncadrantToEquipe(idEquipe, en);
     }
 
-
+    @GetMapping("/getPrimeAnnuel")
+    public Map<String, Double> calculPrimeAnnuelEncadrant(){
+        return encadrantServices.calculPrimeAnnuelEncadrant();
+    }
    
 }

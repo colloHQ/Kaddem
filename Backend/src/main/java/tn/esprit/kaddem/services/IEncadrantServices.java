@@ -1,6 +1,7 @@
 package tn.esprit.kaddem.services;
 
 import java.util.List;
+import java.util.Map;
 
 import tn.esprit.kaddem.entities.Encadrant;
 
@@ -20,4 +21,5 @@ public interface IEncadrantServices {
 
     void addAndAssignEncadrantToEquipe(Integer idEquipe, Encadrant en);
 
+    Map<String, Double> calculPrimeAnnuelEncadrant();
 }
