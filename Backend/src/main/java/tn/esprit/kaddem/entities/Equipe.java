@@ -45,5 +45,9 @@ public class Equipe implements Serializable {
         return "/equipe-photos/" + idEquipe + "/" + photos;
     }
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipe")
+    @JsonIgnore
+    private Set<Projet> projets;
+
 
 }

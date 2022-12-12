@@ -1,6 +1,6 @@
 package tn.esprit.kaddem.entities;
 
-public enum Specialité {
+public enum Specialite {
     IA,
     RESEAUX,
     CLOUD,
