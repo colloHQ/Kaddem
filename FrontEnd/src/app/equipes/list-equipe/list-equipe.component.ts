@@ -1,6 +1,6 @@
 import { Equipes } from './../../core/model/equipes';
 import { EquipesService } from './../../core/service/equipes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-equipe',
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListEquipeComponent implements OnInit {
   public listEquipe: Equipes[];
-
+  currentEquipe: Equipes;
   constructor(private equipesService: EquipesService) {}
 
   ngOnInit(): void {
