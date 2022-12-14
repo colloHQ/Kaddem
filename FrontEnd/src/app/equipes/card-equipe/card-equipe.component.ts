@@ -5,7 +5,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   selector: 'app-card-equipe',
   templateUrl: './card-equipe.component.html',
   styleUrls: ['./card-equipe.component.scss'],
-  styleUrls: ['./card-equipe.component.scss'],
 })
 export class CardEquipeComponent implements OnInit {
   @Input('currentEquipeChild') currentEquipeChild: Equipes;
