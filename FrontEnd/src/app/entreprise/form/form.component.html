@@ -1,0 +1,94 @@
+<h1>Gestion Entreprise</h1>
+<form #f="ngForm">
+  <h6 class="mb-0 text-uppercase">{{ title }}</h6>
+  <hr />
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Nom :</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="e.nomEntreprise"
+            name="nomEntreprise"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Adresse :</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="e.addresseEntreprise"
+            name="addresseEntreprise"
+          />
+        </div>
+        <!-- <div class="mb-3">
+						<label class="form-label">Email :</label>
+						<input type="email" class="form-control" placeholder="example@gmail.com">
+					</div> -->
+        <div class="mb-3">
+          <label class="form-label">Numero :</label>
+          <input
+            type="number"
+            class="form-control"
+            [(ngModel)]="e.numeroEntreprise"
+            name="numeroEntreprise"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Secteur :</label>
+
+          <select
+            class="form-select mb-3"
+            aria-label="Default select example"
+            name="opd"
+            [(ngModel)]="e.secteur"
+          >
+            <option value=""></option>
+            <option value="Informatique">Informatique</option>
+            <option value="Electronique">Electronique</option>
+            <option value="Mecanique">Mecanique</option>
+            <option value="Electromecanique">Electromecanique</option>
+            <option value="GenieCivil">GenieCivil</option>
+          </select>
+        </div>
+
+        <!-- <div class="mb-3">
+						<label class="form-label">Logo :</label>
+						<input type="file" disabled class="form-control">
+					</div> -->
+
+        <!-- <div class="mb-3">
+          <label class="form-label">Url :</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="e.url"
+            name="URL"
+            placeholder="https://example.com/users/"
+          />
+        </div> -->
+
+        <div class="row row-cols-auto g-3">
+          <div class="col">
+            <button
+              type="button"
+              class="btn btn-success px-5"
+              (click)="saveEntreprise()"
+            >
+              {{ button }}
+            </button>
+          </div>
+
+          <div class="col">
+            <button type="reset" class="btn btn-warning px-5">Reset</button>
+          </div>
+          <div class="w-100 border-top"></div>
+          <div class="col"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+<h1>Gestion Entreprise</h1>
+<h6 class="mb-0 text-uppercase">Liste Entreprise</h6>
+<button type="button" class="btn btn-primary add-btn" [routerLink]="['/Entreprise/add']">Ajouter</button>
+<hr/>
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom </th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Secteur</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let entreprise of listEntreprise">
+                    <th scope="row">1</th>
+                    <td>{{entreprise.idEntreprise}}</td>
+                    <td>{{entreprise.nomEntreprise}}</td>
+                    <td>{{entreprise.addresseEntreprise}}</td>
+                    <td>{{entreprise.numeroEntreprise}}</td>
+                    <td>{{entreprise.secteur}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary px-3 btn-spacing" [routerLink]="['', ]">Details</button>
+                        <button type="button" class="btn btn-warning px-3 btn-spacing" [routerLink]="['/Entreprise/update',entreprise.idEntreprise]">Update</button>
+                        <button type="button" class="btn btn-danger px-3 btn-spacing" (click)="deleteEpse(entreprise)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
