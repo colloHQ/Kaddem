@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.kaddem.entities.Etudiant;
 import tn.esprit.kaddem.entities.Option;
+import tn.esprit.kaddem.entities.Projet;
 import tn.esprit.kaddem.services.IContratServices;
 import tn.esprit.kaddem.services.IEtudiantServices;
 

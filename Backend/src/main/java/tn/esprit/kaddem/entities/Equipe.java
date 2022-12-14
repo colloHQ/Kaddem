@@ -18,8 +18,6 @@ import java.util.Set;
 @Table(name = "Equipe")
 public class Equipe implements Serializable {
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "equipe")
-    Set<Projet> projets;
     @ManyToOne
     Encadrant encadrant;
     @Id
