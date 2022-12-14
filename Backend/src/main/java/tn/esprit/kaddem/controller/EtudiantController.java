@@ -91,8 +91,11 @@ public class EtudiantController {
     }
 
     @GetMapping("/findByProjet/{idEtu}")
-    public List<Projet> findByProjet(@PathVariable("idEtu") int idEtudiant){
+    public List<Projet> findByProjet(@PathVariable("idEtu") Long idEtudiant){
         return etudiantServices.getProjets(idEtudiant);
     }
-
+    @GetMapping("/getRevenueEtudiantByProjets/{idEtu}")
+    public Double getRevenueEtudiantByProjets(@PathVariable("idEtu") long idEtudiant){
+        return etudiantServices.getRevenueEtudiantByProjets(idEtudiant);
+    }
 }

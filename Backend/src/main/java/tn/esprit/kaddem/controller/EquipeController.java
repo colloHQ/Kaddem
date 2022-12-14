@@ -1,6 +1,7 @@
 package tn.esprit.kaddem.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -95,10 +96,34 @@ public class EquipeController {
     }
 
 
-    @PutMapping("/updateRating")
-    public void updateRating(int idEquipe) {
-
+    @PostMapping("/updateRating/{idEquipe}")
+    public void updateRating(@PathVariable("idEquipe") int idEquipe) {
+        Equipe e = equipeServices.getEquipe(idEquipe);
+        e.setRating(equipeServices.updateRating(idEquipe));
+        equipeRepository.save(e);
     }
 
+    @GetMapping("/equipeByN/{nv}")
+    public List<Equipe> findEquipeByN(@PathVariable("nv") Niveau nv) {
+        return equipeRepository.findEquipesByNiveauLike(nv);
+    }
+    @GetMapping("/sortDesc")
+    List<Equipe> sortDescEquipe() {
+        return equipeServices.findEquipeByOrderByNomEquipeDesc();
+    }
+    @GetMapping("/sortAsc")
+    List<Equipe> sortAscEquipe() {
+        return equipeServices.findEquipeByOrderByNomEquipeAsc();
+    }
 
+     @GetMapping("/nbrByTheme/{th}")
+     Equipe bestTeamPerNiveau(@PathVariable("th") String thematique){
+        return equipeRepository.bestTeamPerThematique(thematique);
+     }
+
+     @GetMapping("/nbrAlumni/{idEquipe}")
+     public int nbrAlumni(@PathVariable("idEquipe") Integer idEquipe) {
+        return equipeServices.nbrAlumni(idEquipe);
+
+     }
 }

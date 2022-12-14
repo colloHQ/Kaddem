@@ -10,6 +10,14 @@ public interface ProjetRepository extends JpaRepository<Projet, Long> {
     @Query("SELECT p from Projet p where year (p.dateDebutProjet)=:y and year (p.dateFinProjet)=:y")
     List<Projet> getProjetOfYear(int y);
 
-    Projet findAllByOrderByDateFinProjetAsc();
+
+    List<Projet> findAllByOrderByDateFinProjetAsc();
+    List<Projet> findProjetsByEquipeIdEquipe(Integer idEquipe);
+
+    @Query("SELECT pr.entrepriseP.idEntreprise ,sum(pr.prixProjet) " +
+            "from Projet pr " +
+            "INNER JOIN pr.entrepriseP " +
+            "GROUP BY pr.entrepriseP")
+    List<Object> getmapPrixForEntreprise();
 
 }

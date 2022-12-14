@@ -18,6 +18,7 @@ import java.util.Set;
 @Table(name = "Equipe")
 public class Equipe implements Serializable {
 
+
     @ManyToOne
     Encadrant encadrant;
     @Id

@@ -1,18 +1,24 @@
 package tn.esprit.kaddem.services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import tn.esprit.kaddem.entities.Equipe;
-import tn.esprit.kaddem.entities.Niveau;
+import tn.esprit.kaddem.entities.*;
 import tn.esprit.kaddem.repository.EquipeRepository;
+import tn.esprit.kaddem.repository.ProjetRepository;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
+@EnableScheduling
 public class EquipeServiceImp implements IEquipeServices {
 
 
+    private final ProjetRepository projetRepository;
     EquipeRepository equipeRepository;
 
     @Override
@@ -67,9 +73,77 @@ public class EquipeServiceImp implements IEquipeServices {
 
     @Override
     public float updateRating(Integer idEquipe) {
+        {
+            Equipe e = equipeRepository.findById(idEquipe).orElse(null);
+            List<Projet> ProjetsOfEquipe = projetRepository.findProjetsByEquipeIdEquipe(idEquipe);
+            float rating = 0;
+            for (Projet p : ProjetsOfEquipe) {
+                if (p.getReview().toString().equals("VERYBAD")) {
+                    rating = rating + 1;
+                } else if (p.getReview().toString().equals("BAD")) {
+                    rating = rating + 2;
+                } else if (p.getReview().toString().equals("AVERAGE")) {
+                    rating = rating + 3;
+                } else if (p.getReview().toString().equals("GOOD")) {
+                    rating = rating + 4;
+                } else if (p.getReview().toString().equals("EXCELLENT")) {
+                    rating = rating + 5;
+                }
+            }
+            System.out.println(rating / (float) ProjetsOfEquipe.size());
+            return rating / (float) ProjetsOfEquipe.size();
+        }
 
+    }
 
-        return 1;
+    @Scheduled(cron = "*/10 * * * * *") //@weekly
+    @Override
+    public void updateNiveau() {
+        System.out.println(
+                "Fixed delay task - " + System.currentTimeMillis() / 1000);
+        List<Equipe> junior = equipeRepository.findEquipesByNiveauLike(Niveau.JUNIOR);
+        List<Equipe> senior = equipeRepository.findEquipesByNiveauLike(Niveau.SENIOR);
+
+        for (Equipe e : junior) {
+            List<Projet> ProjetsOfEquipe = projetRepository.findProjetsByEquipeIdEquipe(e.getIdEquipe());
+            if (ProjetsOfEquipe.size()>=2 && e.getRating() >=3 ){
+                e.setNiveau(Niveau.SENIOR);
+                equipeRepository.save(e);
+            }
+        }
+        for (Equipe e : senior) {
+            List<Projet> ProjetsOfEquipe = projetRepository.findProjetsByEquipeIdEquipe(e.getIdEquipe());
+            if (ProjetsOfEquipe.size()>=5 && e.getRating() >=4 ){
+                e.setNiveau(Niveau.EXPERT);
+                equipeRepository.save(e);
+            }
+        }
+
+    }
+    @Override
+    public List<Equipe> findEquipeByOrderByNomEquipeDesc() {
+        return equipeRepository.findEquipeByOrderByNomEquipeDesc();
+    }
+
+    @Override
+    public   List<Equipe> findEquipeByOrderByNomEquipeAsc(){
+        return equipeRepository.findEquipeByOrderByNomEquipeAsc();
+    }
+
+    @Override
+    public int nbrAlumni(Integer idEquipe) {
+        int count =0;
+        Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
+        Set<Etudiant> Etudiants = equipe.getEtudiants();
+        for ( Etudiant e : Etudiants){
+            Set<Contrat> contracts = e.getContrats();
+            for ( Contrat c : contracts){
+                if ( c.getDateFinContrat()!=null){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
 

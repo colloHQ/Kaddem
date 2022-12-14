@@ -50,7 +50,17 @@ public class ProjetController {
     }
 
     @GetMapping("/getAllOrderByDateFinProjetAsc")
-    public Projet getProjetOrdredBYDateFin() {
+    public List<Projet> getProjetOrdredBYDateFin() {
         return projetServiceImp.getProjetOrdredBYDateFin();
     }
+    @GetMapping("/getprixparEntreprise/{idEntreprise}")
+    public double getset(@PathVariable("idEntreprise") Long idEntreprise) {
+        return projetServiceImp.getPrixParEntreprise(idEntreprise);
+    }
+    @GetMapping("/getprixparEntreprise")
+    public List<Object> getmapPrixForEntreprise() {
+        return projetServiceImp.getmapPrixForEntreprise();
+    }
+    @GetMapping("/majorationProjet")
+    public void majorationProjet(){projetServiceImp.majorationProjet();}
 }
