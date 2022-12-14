@@ -15,7 +15,7 @@ export class EquipesService {
     return this.http.get<Equipes[]>(this.uri + 'getAll');
   }
   addEquipe(e: Equipes) {
-    return this.http.post(this.uri, e);
+    return this.http.post(this.uri + 'add', e);
   }
   deleteEquipe(id: number) {
     return this.http.delete(this.uri + id);
