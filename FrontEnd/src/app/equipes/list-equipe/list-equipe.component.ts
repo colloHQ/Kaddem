@@ -17,4 +17,11 @@ export class ListEquipeComponent implements OnInit {
       this.listEquipe = data;
     });
   }
+  deleteEquipe(equipe: Equipes) {
+    let i = this.listEquipe.indexOf(equipe);
+    if (i != -1) this.listEquipe.splice(i, 1);
+    this.equipesService.deleteEquipe(equipe.idEquipe).subscribe((res) => {
+      console.log('Equipe deleted');
+    });
+  }
 }

@@ -1,13 +1,13 @@
 <div class="col">
   <div class="card">
-    <img src="assets/images/products/01.png" class="card-img-top" alt="...">
+    <img src="assets/images/equipes/{{equipe.photos.slice(12)}}" class="card-img-top" alt="...">
     <div class="">
-      <div class="position-absolute top-0 end-0 m-3 product-discount"><span class="">{{equipe.niveau}}</span></div>
+      <div class="position-absolute top-0 end-0 m-3 product-discount"><strong>{{equipe.niveau}}</strong></div>
     </div>
     <div class="card-body">
       <h6 class="card-title cursor-pointer">{{equipe.nomEquipe}}</h6>
       <div class="clearfix">
-        <p class="mb-0 float-start"><strong>8</strong> Etudiants</p>
+        <p class="mb-0 float-start"><strong>{{equipe.projets?.length}}</strong> Projets</p>
 
       </div>
       <div class="d-flex align-items-center mt-3 fs-6">
@@ -16,27 +16,21 @@
           <i class='bx bxs-star text-warning'></i>
           <i class='bx bxs-star text-warning'></i>
           <i class='bx bxs-star text-warning'></i>
+
           <i class='bx bxs-star text-secondary'></i>
         </div>
-        <p class="mb-0 ms-auto">4.2(182)</p>
+        <p class="mb-0 ms-auto">{{equipe.rating.toFixed(2)}}({{equipe.projets?.length}})</p>
       </div>
       <div class="d-flex align-items-center mt-3 fs-6">
         <div class=" btn-group mb-0 ms-auto">
-          <button type="button" class="btn btn-outline-secondary">Dropdown</button>
+          <button type="button" class="btn btn-outline-secondary">Details</button>
           <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
             data-bs-toggle="dropdown" aria-expanded="false"> <span class="visually-hidden">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a>
+            <li><a class="dropdown-item" [routerLink]="['/equipes/update',equipe.idEquipe]">Update</a>
             </li>
-            <li><a class="dropdown-item" href="#">Another action</a>
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Separated link</a>
+            <li><a class="dropdown-item" (click)="delete(equipe)">Delete</a>
             </li>
           </ul>
         </div>

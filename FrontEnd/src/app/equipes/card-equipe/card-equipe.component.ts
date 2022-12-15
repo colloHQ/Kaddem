@@ -7,10 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./card-equipe.component.scss'],
 })
 export class CardEquipeComponent implements OnInit {
-  @Input('currentEquipeChild') currentEquipeChild: Equipes;
-
   @Input() equipe: Equipes;
-  @Output() msgChild = new EventEmitter<string>();
+  @Output() deleteMsg = new EventEmitter<Equipes>();
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,4 +16,8 @@ export class CardEquipeComponent implements OnInit {
   nbrProjets() {
     return this.equipe.projets.length;
   }
+  delete(equipe: Equipes) {
+    this.deleteMsg.emit(equipe);
+  }
+  /*delete(equipe: Equipes) {}*/
 }

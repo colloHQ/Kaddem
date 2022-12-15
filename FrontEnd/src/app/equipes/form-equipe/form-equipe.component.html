@@ -34,12 +34,18 @@
                     </select>
                     <div class="invalid-feedback">Selectionner un niveau</div>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <input type="file" formControlName="photos" class="form-control" aria-label="file example" required>
-                    <div class="invalid-feedback">Selectionner une photo pour l'equipe</div>
-                </div>
+                    <div class="invalid-feedback"></div>
+                </div> -->
                 <div class="mb-3">
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <label for="formFile" class="form-label">Selectionner une photo pour l'equipe</label>
+                    <input class="form-control" type="file" id="formFile" formControlName="photos">
+
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">{{action}} Equipe</button>
                 </div>
             </form>
         </div>

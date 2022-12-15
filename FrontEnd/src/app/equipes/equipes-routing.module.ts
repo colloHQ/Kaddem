@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminEquipeComponent },
   { path: 'dashboard', component: DashboardEquipeComponent },
   { path: 'form', component: FormEquipeComponent },
+  { path: 'update/:idEquipe', component: FormEquipeComponent },
 ];
 
 @NgModule({

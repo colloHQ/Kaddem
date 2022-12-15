@@ -18,9 +18,12 @@ export class EquipesService {
     return this.http.post(this.uri + 'add', e);
   }
   deleteEquipe(id: number) {
-    return this.http.delete(this.uri + id);
+    return this.http.delete(this.uri + 'delete/' + id);
   }
   updateEquipe(e: Equipes) {
-    return this.http.put(this.uri + e.idEquipe, e);
+    return this.http.put(this.uri + 'update/', e);
+  }
+  getEquipeById(id: number) {
+    return this.http.get<Equipes>(this.uri + 'getById/' + id);
   }
 }
