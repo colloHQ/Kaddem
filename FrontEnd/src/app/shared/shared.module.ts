@@ -19,7 +19,7 @@ import { ColorSwitcherComponent } from './color-switcher/color-switcher.componen
         NavbarComponent,
         SidebarComponent,
         ColorSwitcherComponent,
-        NgbModule
+        NgbModule,
     ],
     imports: [
         RouterModule,
@@ -31,7 +31,7 @@ import { ColorSwitcherComponent } from './color-switcher/color-switcher.componen
         FooterComponent,
         NavbarComponent,
         SidebarComponent,
-        ColorSwitcherComponent
+        ColorSwitcherComponent,
     ],
     providers: [ ],
 })

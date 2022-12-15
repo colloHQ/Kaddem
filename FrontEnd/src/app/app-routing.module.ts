@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'etudiants', loadChildren: () => import('./etudiants/etudiants.module').then(m => m.EtudiantsModule) },
   { path: 'univDepart', loadChildren: () => import('./univ-depart/univ-depart.module').then(m => m.UnivDepartModule) },
   { path: 'equipes', loadChildren: () => import('./equipes/equipes.module').then(m => m.EquipesModule) },
+  { path: 'Projet', loadChildren: () => import('./projet/projet.module').then(m => m.ProjetModule) },
   { path: '**', redirectTo: 'dashboard/default' }
 ];
 
