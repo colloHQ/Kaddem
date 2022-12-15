@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'equipes', loadChildren: () => import('./equipes/equipes.module').then(m => m.EquipesModule) },
   { path: 'Entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule) },
   { path: 'Projet', loadChildren: () => import('./projet/projet.module').then(m => m.ProjetModule) },
+  { path: 'encadrant', loadChildren: () => import('./encadrant/encadrant.module').then(m => m.EncadrantModule) },
   { path: '**', redirectTo: 'dashboard/default' }
 ];
 

@@ -68,6 +68,13 @@ export class UnivDepartService {
     )
   }
 
+  getRepartiton(){
+    return this.httpClient.get(this.URI_DEP + '/getRepartition/depart/1', this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
 
   // Universite CRUD
   createUniv(univ: Universite){
