@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Etudiant } from 'src/app/core/model/etudiant';
 import { EtudiantService } from 'src/app/core/service/etudiant.service';
 import { Departement } from 'src/app/univ-depart/model/departement';
@@ -12,9 +13,12 @@ import { UnivDepartService } from 'src/app/univ-depart/univ-depart.service';
 export class ListEtudiantComponent implements OnInit {
   public listEtudiant: Etudiant[];
   public listDepartement: Departement[];
+  term = '';
   constructor(
     private etudiantService: EtudiantService,
-    private departementService: UnivDepartService
+    private departementService: UnivDepartService,
+    private route: Router, 
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

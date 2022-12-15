@@ -1,10 +1,15 @@
-<p>list-etudiant works!</p>
+<h1>list-etudiant</h1>
+<div class="position-relative search">
+  <input type="text" class="form-control ps-5 radius-30 spacing" 
+  placeholder="Search Order" [(ngModel)]="term"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
+</div>
+
 <button
   type="button"
-  class="btn btn-primary add-btn"
-  [routerLink]="['/etudiants/add']"
+  class="btn btn-primary add-btn buttonAjout"
+  [routerLink]="['/add']"
 >
-  Ajouter
+  Ajouter Etudiant
 </button>
 <!-- <h6 class="mb-0 text-uppercase">Bordered tables</h6> -->
 <hr />
@@ -21,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let etudiant of listEtudiant">
+        <tr *ngFor="let etudiant of listEtudiant | filter:term">
           <td>{{ etudiant.nomEtudiant }}</td>
           <td>{{ etudiant.prenomEtudiant }}</td>
           <td>{{ etudiant.option }}</td>

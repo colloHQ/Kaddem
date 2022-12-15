@@ -3,7 +3,7 @@ import { RouteInfo } from './sidebar.metadata';
 //Sidebar menu Routes and data
 export const ROUTES: RouteInfo[] = [
     { path: '/etudiants', title: 'Etudiant', icon: 'bx bx-cookie', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-        { path: '/etudiants/list', title: 'List Etudiants', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        { path: '/list', title: 'List Etudiants', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
 
     ]},
 

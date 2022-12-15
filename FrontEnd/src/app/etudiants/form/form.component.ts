@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
       console.log('etudiant added');
       console.log(this.idDepart);
       console.log(this.etudiant.idEtudiant);
-      this.router.navigateByUrl('/etudiants/list');
+      this.router.navigateByUrl('/list');
       this.etudiantService.getAllEtudiant().subscribe((data: Etudiant[]) => {
         this.listEtudiant = data;
         console.log(this.listEtudiant);
