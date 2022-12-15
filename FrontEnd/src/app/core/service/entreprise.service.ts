@@ -4,6 +4,7 @@ import { th } from 'date-fns/locale';
 import { environment } from 'src/environments/environment';
 import { Entreprise } from '../model/Entreprise';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,4 +29,5 @@ export class EntrepriseService {
   BestEnpseOfTheYear(y:number){
     return this.http.get(this.uri+"bestEntrepriseOfTheYear/"+y)
   }
+
 }
