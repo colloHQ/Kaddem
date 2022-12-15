@@ -1,27 +1,46 @@
-<h1>Gestion Entreprise</h1>
+
+<h6 class="mb-0 text-uppercase">{{ title }}</h6>
+<hr />
 <form #f="ngForm">
-  <h6 class="mb-0 text-uppercase">{{ title }}</h6>
-  <hr />
   <div class="card">
     <div class="card-body">
-      <form>
+
         <div class="mb-3">
           <label class="form-label">Nom :</label>
-          <input
-            type="text"
-            class="form-control"
-            [(ngModel)]="e.nomEntreprise"
-            name="nomEntreprise"
-          />
+          <input type="text" class="form-control" [(ngModel)]="e.nomEntreprise"  
+          name="nomEntreprise" required #nom="ngModel"/>
+          <!-- <div class="alert alert-danger spacing" *ngIf="nom.invalid && nom.touched">
+            <div *ngIf="nom.hasError('required')">this field is required</div>
+            
+          </div> -->
+          <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2 spacing" *ngIf="nom.invalid && nom.touched">
+            <div class="d-flex align-items-center">
+              <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+              </div>
+              <div class="ms-3">
+                <h6 class="mb-0 text-white">Error</h6>
+                <div class="text-white" *ngIf="nom.hasError('required')">This field is required</div>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Adresse :</label>
           <input
-            type="text"
-            class="form-control"
-            [(ngModel)]="e.addresseEntreprise"
-            name="addresseEntreprise"
-          />
+            type="text" class="form-control"
+              [(ngModel)]="e.addresseEntreprise" required name="addresseEntreprise" #adr = "ngModel"/>
+              <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2 spacing" *ngIf="nom.invalid && adr.touched">
+                <div class="d-flex align-items-center">
+                  <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                  </div>
+                  <div class="ms-3">
+                    <h6 class="mb-0 text-white">Error</h6>
+                    <div class="text-white" *ngIf="adr.hasError('required')">This field is required</div>
+                  </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
         </div>
         <!-- <div class="mb-3">
 						<label class="form-label">Email :</label>
@@ -34,18 +53,30 @@
             class="form-control"
             [(ngModel)]="e.numeroEntreprise"
             name="numeroEntreprise"
+            required
+            pattern="^[9572]"
+            #num = "ngModel"
           />
+          <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2 spacing" *ngIf="num.invalid && num.touched">
+            <div class="d-flex align-items-center">
+              <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+              </div>
+              <div class="ms-3">
+                <h6 class="mb-0 text-white">Error</h6>
+                <div class="text-white" *ngIf="num.hasError('required')">This field is required</div>
+                <div class="text-white" *ngIf="num.hasError('pattern')">Number must start with 9-7-5-2</div>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Secteur :</label>
 
           <select
-            class="form-select mb-3"
-            aria-label="Default select example"
-            name="opd"
-            [(ngModel)]="e.secteur"
-          >
+            class="form-select mb-3" aria-label="Default select example" name="secteur"
+              [(ngModel)]="e.secteur" required #sec="ngModel">
             <option value=""></option>
             <option value="Informatique">Informatique</option>
             <option value="Electronique">Electronique</option>
@@ -53,6 +84,18 @@
             <option value="Electromecanique">Electromecanique</option>
             <option value="GenieCivil">GenieCivil</option>
           </select>
+          <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2 spacing" *ngIf="sec.invalid && sec.touched">
+            <div class="d-flex align-items-center">
+              <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+              </div>
+              <div class="ms-3">
+                <h6 class="mb-0 text-white">Error</h6>
+                <div class="text-white" *ngIf="sec.hasError('required')">This field is required</div>
+
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         </div>
 
         <!-- <div class="mb-3">
@@ -74,12 +117,12 @@
         <div class="row row-cols-auto g-3">
           <div class="col">
             <button
-              type="button"
-              class="btn btn-success px-5"
-              (click)="saveEntreprise()"
-            >
-              {{ button }}
+              class="btn btn-success px-5" 
+              (click)="saveEntreprise()" [disabled]="f.invalid"
+              >
+              Save
             </button>
+            
           </div>
 
           <div class="col">
@@ -88,7 +131,6 @@
           <div class="w-100 border-top"></div>
           <div class="col"></div>
         </div>
-      </form>
     </div>
   </div>
 </form>

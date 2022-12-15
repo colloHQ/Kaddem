@@ -5,8 +5,9 @@ import { EntrepriseRoutingModule } from './entreprise-routing.module';
 import { EntrepriseComponent } from './entreprise.component';
 import { ListEntrepriseComponent } from './list-entreprise/list-entreprise.component';
 import { FormComponent } from './form/form.component';
-import { FormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { EntrepriseService } from '../core/service/entreprise.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { EntrepriseService } from '../core/service/entreprise.service';
   imports: [
     CommonModule,
     EntrepriseRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
     
   ],
   providers:[EntrepriseService]

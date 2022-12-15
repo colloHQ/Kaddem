@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Entreprise } from 'src/app/core/model/Entreprise';
 import { Secteur } from 'src/app/core/model/Secteur';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { EntrepriseService } from 'src/app/core/service/entreprise.service';
 
 @Component({
@@ -11,9 +12,10 @@ import { EntrepriseService } from 'src/app/core/service/entreprise.service';
 })
 export class FormComponent implements OnInit {
 
+  public ajouterForm:FormGroup
+
   public e:Entreprise
   public action:string
-  public button:string
   public title:string
 
 
@@ -22,7 +24,7 @@ export class FormComponent implements OnInit {
   
 
   constructor(private entrepriseService:EntrepriseService,private route: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,private fb:FormBuilder) { }
 
     
   ngOnInit(): void {
@@ -36,7 +38,6 @@ export class FormComponent implements OnInit {
     if (id!=null){
       //update  
       this.action = 'update'
-      this.button = 'Modifier'
       this.title = 'Modifier Entreprise'
       this.entrepriseService.getEntrepriseById(id).subscribe(
         (data:Entreprise)=>(this.e=data)
@@ -44,10 +45,16 @@ export class FormComponent implements OnInit {
     }else{
       //add
       this.action = 'Add '
-      this.button = 'Ajouter'
       this.title = 'Nouvelle Entreprise'
       this.e = new Entreprise()
     }
+
+    this.ajouterForm = this.fb.group(
+      {nom:['',Validators.required],
+      password:['',Validators.required,Validators.minLength(5)]}
+    )
+
+
   }
   saveEntreprise(){
 

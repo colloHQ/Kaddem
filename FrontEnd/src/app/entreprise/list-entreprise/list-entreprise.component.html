@@ -1,13 +1,19 @@
-<h1>Gestion Entreprise</h1>
+
 <h6 class="mb-0 text-uppercase">Liste Entreprise</h6>
-<button type="button" class="btn btn-primary add-btn" [routerLink]="['/Entreprise/add']">Ajouter</button>
+
 <hr/>
+<div class="position-relative">
+    <input type="text" class="form-control ps-5 radius-30 spacing" 
+    placeholder="Search Order" [(ngModel)]="term"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
+</div>
+<button type="button" class="btn btn-primary add-btn spacing" [routerLink]="['/Entreprise/add']">Add new</button>
+
 <div class="card">
     <div class="card-body">
         <table class="table table-bordered mb-0">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">ID</th>
                     <th scope="col">Nom </th>
                     <th scope="col">Adresse</th>
@@ -17,20 +23,24 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let entreprise of listEntreprise">
-                    <th scope="row">1</th>
-                    <td>{{entreprise.idEntreprise}}</td>
-                    <td>{{entreprise.nomEntreprise}}</td>
-                    <td>{{entreprise.addresseEntreprise}}</td>
-                    <td>{{entreprise.numeroEntreprise}}</td>
-                    <td>{{entreprise.secteur}}</td>
-                    <td>
-                        <button type="button" class="btn btn-primary px-3 btn-spacing" [routerLink]="['', ]">Details</button>
-                        <button type="button" class="btn btn-warning px-3 btn-spacing" [routerLink]="['/Entreprise/update',entreprise.idEntreprise]">Update</button>
-                        <button type="button" class="btn btn-danger px-3 btn-spacing" (click)="deleteEpse(entreprise)">Remove</button>
-                    </td>
+                <tr *ngFor="let entreprise of listEntreprise | filter: term"> 
+                    
+                        <td>{{entreprise.idEntreprise}}</td>
+                        <td>{{entreprise.nomEntreprise}}</td>
+                        <td>{{entreprise.addresseEntreprise}}</td>
+                        <td>{{entreprise.numeroEntreprise}}</td>
+                        <td>{{entreprise.secteur}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary px-3 btn-spacing" [routerLink]="['', ]">Details</button>
+                            <button type="button" class="btn btn-warning px-3 btn-spacing" [routerLink]="['/Entreprise/update',entreprise.idEntreprise]">Update</button>
+                            <button type="button" class="btn btn-danger px-3 btn-spacing" (click)="deleteEpse(entreprise)">Remove</button>
+                        </td>
+                    
                 </tr>
             </tbody>
         </table>
+
     </div>
+
+    
 </div>

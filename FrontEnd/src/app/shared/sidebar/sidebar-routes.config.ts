@@ -107,6 +107,27 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
 
+  { path: '/Entreprise', 
+    title: 'Entreprise', 
+    icon: 'bx bx-cookie', 
+    class: 'sub', 
+    badge: '', 
+    badgeClass: '', 
+    isExternalLink: false, 
+    submenu: [
+      { path: '/Entreprise/list', 
+        title: 'List Entreprise', 
+        icon: 'bx bx-right-arrow-alt', 
+        class: '', 
+        badge: '', 
+        badgeClass: '', 
+        isExternalLink: false, 
+        submenu: [] 
+      },
+    ],
+  },
+
+
   {
     path: '/widgets',
     title: 'Widgets',
@@ -237,12 +258,9 @@ export const ROUTES: RouteInfo[] = [
         isExternalLink: false,
         submenu: [],
       },
-      {
-        path: '/application/calendar',    { path: '/Entreprise', title: 'Entreprise', icon: 'bx bx-cookie', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-        { path: '/Entreprise/list', title: 'List Entreprise', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    ]},
-
-
+        
+    {
+        path: '/calendar',
         title: 'Calendar',
         icon: 'bx bx-right-arrow-alt',
         class: '',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Entreprise } from 'src/app/core/model/Entreprise';
 import { EntrepriseService } from 'src/app/core/service/entreprise.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-list-entreprise',
@@ -10,7 +11,8 @@ import { EntrepriseService } from 'src/app/core/service/entreprise.service';
 export class ListEntrepriseComponent implements OnInit {
 
   public listEntreprise:Entreprise[];
-
+  searchTerm = '';
+  term = '';
   constructor(private entrepriseService: EntrepriseService) { }
 
   ngOnInit(): void {

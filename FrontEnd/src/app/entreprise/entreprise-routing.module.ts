@@ -5,10 +5,11 @@ import { ListEntrepriseComponent } from './list-entreprise/list-entreprise.compo
 import { FormComponent } from './form/form.component';
 
 const routes: Routes =
- [{ path: '', component: EntrepriseComponent },
-  { path:'list',component:ListEntrepriseComponent},
-  { path:'add',component:FormComponent},
-  { path:'update/:idEntreprise',component:FormComponent}];
+ [{ path: '', component: EntrepriseComponent, children:[ 
+   { path:'list',component:ListEntrepriseComponent},
+   { path:'add',component:FormComponent},
+   { path:'update/:idEntreprise',component:FormComponent}] },
+];
   
 
 @NgModule({
