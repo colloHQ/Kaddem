@@ -1,0 +1,36 @@
+<app-analytics></app-analytics>
+
+<div>
+    <h1>Encadrants :</h1>
+    <button type="button" class="btn btn-primary add-btn" [routerLink]="['/encadrant/add/']">Ajouter Encadrant</button>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered mb-0">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Date Embauche</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let encadrant of encadrants">
+                    <th scope="row">{{encadrant.idEncadrant}}</th>
+                    <td>{{encadrant.nomEncadrant}}</td>
+                    <td>{{encadrant.prenomEncadrant}}</td>
+                    <td>{{encadrant.dateEmbauche | date: 'd/M/y'}}</td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary add-btn" [routerLink]="['/encadrant/details/', encadrant.idEncadrant]">Details</button>
+                        <button type="button" class="btn btn-warning add-btn" [routerLink]="['/encadrant/update/', encadrant.idEncadrant]">Update</button>
+                        <button type="button" class="btn btn-danger add-btn" (click)="removeEncadrant(encadrant)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

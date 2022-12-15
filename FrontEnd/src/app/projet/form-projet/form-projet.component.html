@@ -1,0 +1,57 @@
+
+  <div class="card border-top border-0 border-4 border-primary">
+    <div class="card-body p-5">
+      <div class="card-title d-flex align-items-center">
+        <div><i class="bx bxs-plus"></i>
+        </div>
+        <h5 class="mb-0 text-primary">{{action}} Projet</h5>
+      </div>
+      <hr>
+      <form #f="ngForm" class="row g-3" >
+        <div class="form-group col-12">
+          <label class="form-label">Title</label>
+          <input [(ngModel)]="projet.description" name="description" type="text" class="form-control"  required   minlength="3" #t="ngModel"  >
+          <div class="alert alert-danger" *ngIf="t.invalid && t.touched ">
+            <div *ngIf="t.hasError('required')">this field is required</div>
+            <div *ngIf="t.hasError('minlength')">minlength = 3!</div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <label  class="form-label">Date Debut du Projet</label>
+          <input type="date" class="form-control" id="inputPassword" [(ngModel)]="projet.dateDebutProjet" name="dateDebutProjet" #s="ngModel" required  >
+          <div class="alert alert-danger" *ngIf="s.invalid && s.touched ">
+            this field is required
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label  class="form-label">Date Fin du Projet</label>
+          <input type="date" class="form-control" id="inputDate" [(ngModel)]="projet.dateFinProjet" name="datefinProjet" #d="ngModel" required>
+          <div class="alert alert-danger" *ngIf="d.invalid && d.touched ">
+            this field is required
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="prix" class="form-label">Prix du Projet</label>
+          <input type="number" class="form-control" id="prix" [(ngModel)]="projet.prixProjet" name="prixProjet" #p="ngModel" required>
+          <div class="alert alert-danger" *ngIf="p.invalid && p.touched ">
+            this field is required
+          </div>
+        </div>
+        <div *ngIf="action=='Add'" class="col-md-6">
+          <label for="entreprise" class="form-label"> Id Entreprise</label>
+          <input type="number" class="form-control" id="entreprise" [(ngModel)]="identreprise" name="entrepriseP" #e="ngModel" required>
+          <div class="alert alert-danger" *ngIf="e.invalid && e.touched ">
+            this field is required
+          </div>
+        </div>
+        <div *ngIf="action=='update'" class="col-md-6">
+          <label for="equipe" class="form-label">Ajouter projet à une equipe Par id</label>
+          <input  type="number" class="form-control" id="equipe" [(ngModel)]="idequipe" name="equipe" >
+        </div>
+        <div class="col-12">
+          <button (click)="saveProjet()" type="submit" class="btn btn-primary px-5" [disabled]="f.invalid " >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>

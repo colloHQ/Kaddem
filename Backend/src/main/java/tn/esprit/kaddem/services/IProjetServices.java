@@ -7,18 +7,26 @@ import java.util.List;
 public interface IProjetServices {
     List<Projet> getAllProjet();
 
-    Projet addProjet(Projet p);
+    Projet addProjet(Projet p ,Long id);
 
-    Projet updateProjet(Projet p);
+    Projet updateProjet(Projet p,int id2);
+
+    Projet statusToFinished(Projet p);
 
     void deleteProjet(Long idProjet);
 
     Projet getProjet(Long idProjet);
 
-    Projet addAndAssignProjetToEquipeAndEntreprise(Projet p, int idEquipe, Long idEntreprise);
+    Projet addAndAssignProjetToEquipe(Projet p, int idEquipe);
 
     List<Projet> getProjetOfYear(int y);
 
-    Projet getProjetOrdredBYDateFin();
+    List<Projet> getProjetOrdredBYDateFin();
+
+    double getPrixParEntreprise(Long idEntreprise);
+
+    List<Object> getmapPrixForEntreprise();
+
+    void majorationProjet();
 
 }
