@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +13,6 @@ import { EspaceEquipeComponent } from './espace-equipe/espace-equipe.component';
 import { DashboardEquipeComponent } from './dashboard-equipe/dashboard-equipe.component';
 import { CardEquipeComponent } from './card-equipe/card-equipe.component';
 
-
 @NgModule({
   declarations: [
     EquipesComponent,
@@ -21,11 +22,14 @@ import { CardEquipeComponent } from './card-equipe/card-equipe.component';
     AdminEquipeComponent,
     EspaceEquipeComponent,
     DashboardEquipeComponent,
-    CardEquipeComponent
+    CardEquipeComponent,
   ],
   imports: [
     CommonModule,
-    EquipesRoutingModule
-  ]
+    EquipesRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class EquipesModule { }
+export class EquipesModule {}
