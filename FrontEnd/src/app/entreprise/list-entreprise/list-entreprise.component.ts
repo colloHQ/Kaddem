@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Entreprise } from 'src/app/core/model/Entreprise';
+import { Entreprise } from 'src/app/core/model/entreprise';
 import { EntrepriseService } from 'src/app/core/service/entreprise.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { data } from 'jquery';

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { th } from 'date-fns/locale';
 import { environment } from 'src/environments/environment';
-import { Entreprise } from '../model/Entreprise';
+import { Entreprise } from '../model/entreprise';
 
 
 @Injectable({
