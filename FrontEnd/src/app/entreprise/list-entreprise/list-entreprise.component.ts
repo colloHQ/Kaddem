@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Entreprise } from 'src/app/core/model/Entreprise';
 import { EntrepriseService } from 'src/app/core/service/entreprise.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-list-entreprise',
@@ -13,6 +14,8 @@ export class ListEntrepriseComponent implements OnInit {
   public listEntreprise:Entreprise[];
   searchTerm = '';
   term = '';
+  year:number
+  public bestEnpse:Entreprise
   constructor(private entrepriseService: EntrepriseService) { }
 
   ngOnInit(): void {
@@ -20,6 +23,12 @@ export class ListEntrepriseComponent implements OnInit {
       (data: Entreprise[]) => {
         this.listEntreprise = data;
       })
+
+      this.entrepriseService.BestEnpseOfTheYear(2022).subscribe(
+        (data:Entreprise)=>{
+          this.bestEnpse = data
+        }
+      )
   }
 
   deleteEpse(e: Entreprise){

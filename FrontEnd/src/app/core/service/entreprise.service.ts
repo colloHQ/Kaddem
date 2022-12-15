@@ -25,4 +25,7 @@ export class EntrepriseService {
   updateEntreprise(e: Entreprise) {
     return this.http.put(this.uri +"update/"+ e.idEntreprise, e)
   }
+  BestEnpseOfTheYear(y:number){
+    return this.http.get(this.uri+"bestEntrepriseOfTheYear/"+y)
+  }
 }
