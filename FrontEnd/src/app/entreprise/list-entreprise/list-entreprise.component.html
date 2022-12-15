@@ -26,12 +26,11 @@
                 <tr *ngFor="let entreprise of listEntreprise | filter: term"> 
                     
                         <td>{{entreprise.idEntreprise}}</td>
-                        <td>{{entreprise.nomEntreprise}}</td>
+                        <td>{{entreprise?.nomEntreprise}}</td>
                         <td>{{entreprise.addresseEntreprise}}</td>
                         <td>{{entreprise.numeroEntreprise}}</td>
                         <td>{{entreprise.secteur}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary px-3 btn-spacing" [routerLink]="['', ]">Details</button>
                             <button type="button" class="btn btn-warning px-3 btn-spacing" [routerLink]="['/Entreprise/update',entreprise.idEntreprise]">Update</button>
                             <button type="button" class="btn btn-danger px-3 btn-spacing" (click)="deleteEpse(entreprise)">Remove</button>
                         </td>

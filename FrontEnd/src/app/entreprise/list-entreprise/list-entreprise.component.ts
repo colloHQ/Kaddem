@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Entreprise } from 'src/app/core/model/Entreprise';
+import { Entreprise } from 'src/app/core/model/entreprise';
 import { EntrepriseService } from 'src/app/core/service/entreprise.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { data } from 'jquery';
@@ -22,6 +22,7 @@ export class ListEntrepriseComponent implements OnInit {
     this.entrepriseService.getAllEntreprises().subscribe(
       (data: Entreprise[]) => {
         this.listEntreprise = data;
+        console.log(this.listEntreprise)
       })
 
       this.entrepriseService.BestEnpseOfTheYear(2022).subscribe(

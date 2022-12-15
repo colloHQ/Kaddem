@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Entreprise } from 'src/app/core/model/Entreprise';
+import { Entreprise } from 'src/app/core/model/entreprise';
 import { Secteur } from 'src/app/core/model/Secteur';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { EntrepriseService } from 'src/app/core/service/entreprise.service';
@@ -17,9 +17,9 @@ export class FormComponent implements OnInit {
   public e:Entreprise
   public action:string
   public title:string
+  id: number
 
 
-  keys = Object.keys;
   public secteurEnum = Secteur;
   
 
@@ -32,14 +32,14 @@ export class FormComponent implements OnInit {
     this.action = this.activatedRoute.snapshot.routeConfig.path
     console.log(this.activatedRoute.snapshot.routeConfig.path)
 
-    let id = this.activatedRoute.snapshot.params["idEntreprise"]
-    console.log(id)
+    this.id = this.activatedRoute.snapshot.params["idEntreprise"]
+    console.log(this.id)
 
-    if (id!=null){
+    if (this.id!=null){
       //update  
       this.action = 'update'
       this.title = 'Modifier Entreprise'
-      this.entrepriseService.getEntrepriseById(id).subscribe(
+      this.entrepriseService.getEntrepriseById(this.id).subscribe(
         (data:Entreprise)=>(this.e=data)
       )
     }else{
