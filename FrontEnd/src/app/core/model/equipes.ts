@@ -13,5 +13,7 @@ export class Equipes {
   encadrants: Encadrant;
   projets: Projets[];
   detailsEquipe: number;
+
   etudiants: Etudiant[];
 }
+

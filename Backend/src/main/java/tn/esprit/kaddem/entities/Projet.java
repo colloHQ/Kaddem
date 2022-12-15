@@ -24,10 +24,10 @@ public class Projet implements Serializable {
     String description;
     double prixProjet;
 
-    @JsonIgnore
+
     @ManyToOne
     Equipe equipe;
-    @JsonIgnore
+
     @ManyToOne
     Entreprise entrepriseP;
 
