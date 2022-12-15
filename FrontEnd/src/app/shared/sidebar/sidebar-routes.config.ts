@@ -106,7 +106,7 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
 
-  /*{
+  {
     path: '/univDepart',
     title: 'Uni & Dep',
     icon: 'bx bx-cookie',
@@ -159,7 +159,7 @@ export const ROUTES: RouteInfo[] = [
       },
     ],
   },
-
+/*
   {
     path: '/widgets',
     title: 'Widgets',
