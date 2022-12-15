@@ -10,6 +10,7 @@ import tn.esprit.kaddem.services.IEncadrantServices;
 
 @RestController
 @RequestMapping("/Encadrant")
+@CrossOrigin("http://localhost:4200")
 @AllArgsConstructor
 public class EncadrantController {
     

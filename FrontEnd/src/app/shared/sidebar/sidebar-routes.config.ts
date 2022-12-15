@@ -139,6 +139,28 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
+    path: '/encadrant',
+    title: 'Encadrants',
+    icon: 'bx bx-cookie',
+    class: 'sub',
+    badge: '',
+    badgeClass: '',
+    isExternalLink: false,
+    submenu: [
+      {
+        path: '/encadrant/home',
+        title: 'Gestion Encadrant',
+        icon: 'bx bx-right-arrow-alt',
+        class: '',
+        badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: [],
+      },
+    ],
+  },
+
+  {
     path: '/widgets',
     title: 'Widgets',
     icon: 'bx bx-cookie',

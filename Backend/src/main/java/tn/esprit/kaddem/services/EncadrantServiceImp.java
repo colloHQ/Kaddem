@@ -24,7 +24,6 @@ public class EncadrantServiceImp implements IEncadrantServices{
     EncadrantRepository encadrantRepository;
     EquipeRepository equipeRepository;
 
-    @Cacheable(value = "encadrant")
     @Override
     public List<Encadrant> getAllEncadrants() {
         return encadrantRepository.findAll();
