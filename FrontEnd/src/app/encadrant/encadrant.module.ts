@@ -8,6 +8,8 @@ import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { UpdateComponent } from './update/update.component';
 import { FormsModule } from '@angular/forms';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -16,12 +18,14 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     CreateComponent,
     DetailsComponent,
-    UpdateComponent
+    UpdateComponent,
+    AnalyticsComponent,
   ],
   imports: [
     CommonModule,
     EncadrantRoutingModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ]
 })
 export class EncadrantModule { }
