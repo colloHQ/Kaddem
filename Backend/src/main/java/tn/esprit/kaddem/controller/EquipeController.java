@@ -1,11 +1,18 @@
 package tn.esprit.kaddem.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 import tn.esprit.kaddem.entities.Equipe;
 import tn.esprit.kaddem.entities.Niveau;
+import tn.esprit.kaddem.repository.EquipeRepository;
 import tn.esprit.kaddem.services.IEquipeServices;
+import tn.esprit.kaddem.utils.FileUploadUtil;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -14,6 +21,7 @@ import java.util.List;
 public class EquipeController {
 
 
+    private final EquipeRepository equipeRepository;
     IEquipeServices equipeServices;
 
     @GetMapping("/getAll")
@@ -22,7 +30,7 @@ public class EquipeController {
     }
 
     @GetMapping("/getById/{idEquipe}")
-    public Equipe getEquipe(@PathVariable ("idEquipe") Integer idEquipe) {
+    public Equipe getEquipe(@PathVariable("idEquipe") int idEquipe) {
         return equipeServices.getEquipe(idEquipe);
     }
 
@@ -37,7 +45,7 @@ public class EquipeController {
     }
 
     @DeleteMapping("/delete/{idEquipe}")
-    public void deleteEquipe(@PathVariable ("idEquipe") Integer idEquipe) {
+    public void deleteEquipe(@PathVariable("idEquipe") Integer idEquipe) {
         equipeServices.deleteEquipe(idEquipe);
     }
 
@@ -67,4 +75,55 @@ public class EquipeController {
     }
 
 
+    /*-- Added functionality */
+    @PostMapping("/save")
+    public RedirectView saveEquipe(Equipe eq, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        eq.setPhotos(fileName);
+
+        Equipe savedEquipe = equipeRepository.save(eq);
+
+        String uploadDir = "equipe-photos/" + savedEquipe.getIdEquipe();
+
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        return new RedirectView("/Equipe/getAll", true);
+    }
+
+    @GetMapping("/getTopThree")
+    public List<Equipe> getTopThree() {
+        return equipeRepository.findTop3ByOrderByRatingDesc();
+    }
+
+
+    @PostMapping("/updateRating/{idEquipe}")
+    public void updateRating(@PathVariable("idEquipe") int idEquipe) {
+        Equipe e = equipeServices.getEquipe(idEquipe);
+        e.setRating(equipeServices.updateRating(idEquipe));
+        equipeRepository.save(e);
+    }
+
+    @GetMapping("/equipeByN/{nv}")
+    public List<Equipe> findEquipeByN(@PathVariable("nv") Niveau nv) {
+        return equipeRepository.findEquipesByNiveauLike(nv);
+    }
+    @GetMapping("/sortDesc")
+    List<Equipe> sortDescEquipe() {
+        return equipeServices.findEquipeByOrderByNomEquipeDesc();
+    }
+    @GetMapping("/sortAsc")
+    List<Equipe> sortAscEquipe() {
+        return equipeServices.findEquipeByOrderByNomEquipeAsc();
+    }
+
+     @GetMapping("/nbrByTheme/{th}")
+     Equipe bestTeamPerNiveau(@PathVariable("th") String thematique){
+        return equipeRepository.bestTeamPerThematique(thematique);
+     }
+
+     @GetMapping("/nbrAlumni/{idEquipe}")
+     public int nbrAlumni(@PathVariable("idEquipe") Integer idEquipe) {
+        return equipeServices.nbrAlumni(idEquipe);
+
+     }
 }

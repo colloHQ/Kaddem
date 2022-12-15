@@ -1,6 +1,6 @@
 package tn.esprit.kaddem.controller;
 
-//import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.kaddem.entities.Etudiant;
@@ -11,7 +11,6 @@ import tn.esprit.kaddem.services.IEtudiantServices;
 
 import java.util.List;
 import java.util.Set;
-
 
 @RestController
 @RequestMapping("/Etudiant")
@@ -64,13 +63,15 @@ public class EtudiantController {
     }
 
     @PutMapping("/assignToDepartement/{idEtudiant}/{idDepartement}")
-    public void assignEtudiantToDepartement(@PathVariable("idEtudiant") Long idEtudiant, @PathVariable("idDepartement") Integer idDepartement) {
+    public void assignEtudiantToDepartement(@PathVariable("idEtudiant") Long idEtudiant,
+            @PathVariable("idDepartement") Integer idDepartement) {
         etudiantServices.assignEtudiantToDepartement(idEtudiant, idDepartement);
     }
 
     @PostMapping("/addAndAssignToEquipeAndContract/{idEquipe}/{idContrat}")
     @ResponseBody
-    public Etudiant addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e, @PathVariable("idEquipe") Integer idEquipe, @PathVariable("idContrat") Integer idContrat) {
+    public Etudiant addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e,
+            @PathVariable("idEquipe") Integer idEquipe, @PathVariable("idContrat") Integer idContrat) {
         return etudiantServices.addAndAssignEtudiantToEquipeAndContract(e, idEquipe, idContrat);
     }
 
@@ -80,19 +81,23 @@ public class EtudiantController {
     }
 
     @GetMapping("/nbrEtud/{idDepart}")
-    public Long getNbrEtudiant(@PathVariable("idDepart") Integer idDepartement){
+    public Long getNbrEtudiant(@PathVariable("idDepart") Integer idDepartement) {
         return etudiantServices.nbrEtudByOneDepart(idDepartement);
     }
 
     @GetMapping("/getByArchive/{archive}")
-    public Set<Etudiant> findByContratsArchive(@PathVariable("archive") Boolean archive){
+    public Set<Etudiant> findByContratsArchive(@PathVariable("archive") Boolean archive) {
 
         return etudiantServices.findByContratsArchive(archive);
     }
 
     @GetMapping("/findByProjet/{idEtu}")
-    public List<Projet> findByProjet(@PathVariable("idEtu") int idEtudiant){
+    public List<Projet> findByProjet(@PathVariable("idEtu") Long idEtudiant) {
         return etudiantServices.getProjets(idEtudiant);
     }
 
+    @GetMapping("/getRevenueEtudiantByProjets/{idEtu}")
+    public Double getRevenueEtudiantByProjets(@PathVariable("idEtu") long idEtudiant) {
+        return etudiantServices.getRevenueEtudiantByProjets(idEtudiant);
+    }
 }

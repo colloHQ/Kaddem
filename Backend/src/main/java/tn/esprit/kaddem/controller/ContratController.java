@@ -27,8 +27,10 @@ public class ContratController {
         return contratServices.getALLContrat();
     }
 
+
     @GetMapping("/getById/{idContrat}")
-    public Contrat getContrat(@PathVariable ("idContrat")Integer idContrat) {
+    public Contrat getContrat(@PathVariable ("idContrat") Integer idContrat) {
+
         return contratServices.getContratById(idContrat);
     }
 
@@ -42,6 +44,9 @@ public class ContratController {
         return contratServices.updateContrat(c);
     }
 
+
+
+
     @DeleteMapping("/delete/{idContrat}")
     public void deleteContrat(@PathVariable ("idContrat") Integer idContrat) {
         contratServices.deleteContrat(idContrat);
@@ -50,6 +55,7 @@ public class ContratController {
     @PostMapping("/affectToEtudiant/{nomE}/{prenomE}")
     public Contrat affectContratToEtudiant(@RequestBody Contrat contrat,@PathVariable("nomE") String nomE, @PathVariable ("prenomE") String prenomE) {
         return contratServices.affectContratToEtudiant(contrat, nomE, prenomE);
+
     }
 
     @GetMapping("/getCA/{startDate}/{endDate}")

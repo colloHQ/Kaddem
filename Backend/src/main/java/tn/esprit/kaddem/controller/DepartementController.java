@@ -7,10 +7,12 @@ import tn.esprit.kaddem.entities.Option;
 import tn.esprit.kaddem.services.IDepartementServices;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/Departement")
+@CrossOrigin(origins = "http://localhost:4200/")
 @AllArgsConstructor
 public class DepartementController {
 
@@ -39,17 +41,23 @@ public class DepartementController {
     }
 
     @DeleteMapping("/delete/{idDepart}")
-    public void deleteDepartement(@PathVariable ("idDepart") Integer idDepart) {
+    public void deleteDepartement(@PathVariable("idDepart") Integer idDepart) {
         departementServices.deleteDepartement(idDepart);
     }
 
     @GetMapping("/getByEtudOpt/{opt}")
-    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable ("opt") Option opt) {
+    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("opt") Option opt) {
         return departementServices.retrieveDepartementByOptionEtudiant(opt);
     }
 
     @GetMapping("retrieveDepartementByUniversite/{idU}")
-    public Set<Departement> retrieveDepartementByUniversite(@PathVariable("idU") Integer idUniversite){
+    public Set<Departement> retrieveDepartementByUniversite(@PathVariable("idU") Integer idUniversite) {
         return departementServices.retrieveDepartementByUniversite(idUniversite);
     }
+
+    @GetMapping("/getRepartition/depart/{idDepart}")
+    public Map<Option, Long> getRepartitionEtudiantsParDepartement(@PathVariable("idDepart") Integer idDeprat){
+        return departementServices.getRepartitionEtudiantsParDepartement(idDeprat);
+    }
+
 }
