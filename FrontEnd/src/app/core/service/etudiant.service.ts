@@ -4,21 +4,24 @@ import { environment } from 'src/environments/environment';
 import { Etudiant } from '../model/etudiant';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EtudiantService {
-  public uri = environment.uri + 'Etudiant/'
-  constructor(private http: HttpClient) { }
+  public uri = environment.uri + 'Etudiant/';
+  constructor(private http: HttpClient) {}
   getAllEtudiant() {
-    return this.http.get<Etudiant[]>(this.uri+"getAll")
+    return this.http.get<Etudiant[]>(this.uri + 'getAll');
   }
   addEtudiant(e: Etudiant) {
-    return this.http.post(this.uri, e)
+    return this.http.post(this.uri + 'add', e);
   }
   deleteEtudiant(id: number) {
-    return this.http.delete(this.uri + id)
+    return this.http.delete(this.uri + 'delete/' + id);
   }
   updateEtudiant(e: Etudiant) {
-    return this.http.put(this.uri + e.idEtudiant, e)
+    return this.http.put(this.uri + e.idEtudiant, e);
+  }
+  assignEtudiantToDepartement(e: Etudiant, idE: number, idD: number) {
+    this.http.put(this.uri + 'assignToDepartement/' + idE + '/' + idD,e);
   }
 }

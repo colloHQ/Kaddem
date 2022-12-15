@@ -1,27 +1,48 @@
 <p>list-etudiant works!</p>
-
-
-<h6 class="mb-0 text-uppercase">Bordered tables</h6>
-<hr/>
+<button
+  type="button"
+  class="btn btn-primary add-btn"
+  [routerLink]="['/etudiants/add']"
+>
+  Ajouter
+</button>
+<!-- <h6 class="mb-0 text-uppercase">Bordered tables</h6> -->
+<hr />
 <div class="card">
-    <div class="card-body">
-        <table class="table table-bordered mb-0">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                </tr>
-            </thead>
-            <tbody >
-                <tr *ngFor="let etudiant of listEtudiant">
-                    <th scope="row">1</th>
-                    <td>{{etudiant.idEtudiant}}</td>
-                    <td>{{etudiant.nomEtudiant}}</td>
-                    <td>{{etudiant.prenomEtudiant}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="card-body">
+    <table class="table table-bordered mb-0">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">option</th>
+          <!-- <th scope="col">Nom Depart</th> -->
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let etudiant of listEtudiant">
+          <td>{{ etudiant.nomEtudiant }}</td>
+          <td>{{ etudiant.prenomEtudiant }}</td>
+          <td>{{ etudiant.option }}</td>
+          <!-- <td>{{ etudiant.departement.nomDepartement }}</td> -->
+          <td>
+            <button class="btn btn-danger" (click)="delete(etudiant)">
+              Remove
+            </button>
+            <button type="button" class="btn btn-primary add-btn">
+              Details
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning add-btn"
+              [routerLink]="['/etudiants/update', etudiant.idEtudiant]"
+            >
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
