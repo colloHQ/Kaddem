@@ -1,3 +1,4 @@
+import { FormEquipeComponent } from './form-equipe/form-equipe.component';
 import { DashboardEquipeComponent } from './dashboard-equipe/dashboard-equipe.component';
 import { AdminEquipeComponent } from './admin-equipe/admin-equipe.component';
 import { EspaceEquipeComponent } from './espace-equipe/espace-equipe.component';
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'espace', component: EspaceEquipeComponent },
   { path: 'admin', component: AdminEquipeComponent },
   { path: 'dashboard', component: DashboardEquipeComponent },
+  { path: 'form', component: FormEquipeComponent },
+  { path: 'update/:idEquipe', component: FormEquipeComponent },
 ];
 
 @NgModule({

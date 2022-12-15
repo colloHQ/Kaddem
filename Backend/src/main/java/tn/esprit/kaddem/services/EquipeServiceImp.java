@@ -96,7 +96,7 @@ public class EquipeServiceImp implements IEquipeServices {
 
     }
 
-    @Scheduled(cron = "*/10 * * * * *") //@weekly
+   // @Scheduled(cron = "*/10 * * * * *") //@weekly
     @Override
     public void updateNiveau() {
         System.out.println(
