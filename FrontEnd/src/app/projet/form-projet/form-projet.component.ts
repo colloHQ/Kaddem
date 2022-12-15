@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Projet} from "../../core/model/projet";
 import {ProjetService} from "../../core/service/projet.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Entreprise} from "../../core/model/entreprise";
+import {Entreprise} from "../../core/model/Entreprise";
 import {EntrepriseService} from "../../core/service/entreprise.service";
 
 @Component({
