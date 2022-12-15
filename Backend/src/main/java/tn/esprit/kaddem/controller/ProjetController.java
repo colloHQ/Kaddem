@@ -19,14 +19,18 @@ public class ProjetController {
         return projetServiceImp.getAllProjet();
     }
 
-    @PostMapping("/add")
-    public Projet add(@RequestBody Projet p) {
-        return projetServiceImp.addProjet(p);
+    @PostMapping("/add/{idEntreprise}")
+    public Projet add(@RequestBody Projet p,@PathVariable("idEntreprise") long idEntreprise) {
+        return projetServiceImp.addProjet(p,idEntreprise);
     }
 
-    @PutMapping("/update")
-    public Projet updat(@RequestBody Projet p) {
-        return projetServiceImp.updateProjet(p);
+    @PutMapping("/update/{idEquipe}")
+    public Projet updat(@RequestBody Projet p,@PathVariable("idEquipe") int idEquipe) {
+        return projetServiceImp.updateProjet(p,idEquipe);
+    }
+    @PutMapping("/ToFinished")
+    public Projet statusToFinished(@RequestBody Projet p){
+        return projetServiceImp.statusToFinished(p);
     }
 
     @DeleteMapping("/delete/{idProjet}")
@@ -40,8 +44,8 @@ public class ProjetController {
     }
 
     @PostMapping("/addAndAssignProjetToEquipeAndEntreprise/{idEquipe}/{idEntreprise}")
-    public Projet addAndAssignProjetToEntreprise(@RequestBody Projet p, @PathVariable("idEquipe") int idEquipe, @PathVariable("idEntreprise") Long idEntreprise) {
-        return projetServiceImp.addAndAssignProjetToEquipeAndEntreprise(p, idEquipe, idEntreprise);
+    public Projet addAndAssignProjetToEntreprise(@RequestBody Projet p, @PathVariable("idEquipe") int idEquipe ) {
+        return projetServiceImp.addAndAssignProjetToEquipe(p, idEquipe);
     }
 
     @GetMapping("/getProjetOfyear/{year}")

@@ -1,7 +1,8 @@
-export enum Secteur{
-    Informatique,
-    Electronique,
-    Mecanique,
-    Electromecanique,
-    GenieCivil
-}
+
+export enum Secteur {
+  Informatique,
+  Electronique,
+  Mecanique,
+  Electromecanique,
+  GenieCivil,
+}s

@@ -29,15 +29,27 @@ public class ProjetServiceImp implements IProjetServices {
     }
 
     @Override
-    public Projet addProjet(Projet p) {
+    public Projet addProjet(Projet p, Long id) {
         p.setStatus(Status.NotAffected);
+        Entreprise entreprise = entrepriseRepository.findById(id).orElse(null);
+        p.setEntrepriseP(entreprise);
         return projetRepository.save(p);
     }
 
     @Override
-    public Projet updateProjet(Projet p) {
+    public Projet updateProjet(Projet p, int id2) {
+        Equipe equipe = equipeRepository.findById(id2).orElse(null);
+        p.setEquipe(equipe);
+        p.setStatus(Status.InProgress);
         return projetRepository.save(p);
     }
+
+    @Override
+    public Projet statusToFinished(Projet p) {
+        p.setStatus(Status.finished);
+        return projetRepository.save(p);
+    }
+
 
     @Override
     public void deleteProjet(Long idProjet) {
@@ -51,11 +63,9 @@ public class ProjetServiceImp implements IProjetServices {
 
 
     @Override
-    public Projet addAndAssignProjetToEquipeAndEntreprise(Projet p, int idEquipe, Long idEntreprise) {
+    public Projet addAndAssignProjetToEquipe(Projet p, int idEquipe) {
         Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
-        Entreprise entreprise = entrepriseRepository.findById(idEntreprise).orElse(null);
         p.setEquipe(equipe);
-        p.setEntrepriseP(entreprise);
         p.setStatus(Status.InProgress);
         return projetRepository.save(p);
     }
