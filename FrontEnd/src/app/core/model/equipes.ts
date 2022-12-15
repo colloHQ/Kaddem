@@ -6,4 +6,7 @@ export class Equipes {
   rating: number;
   encadrant: number;
   detailsEquipe: number;
+
+
 }
+

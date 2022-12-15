@@ -24,6 +24,37 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
   {
+    path: '/Projet',
+    title: 'Projet',
+    icon: 'bx bx-cookie',
+    class: 'sub',
+    badge: '',
+    badgeClass: '',
+    isExternalLink: false,
+    submenu: [
+      {
+        path: '/Projet/list',
+        title: 'List Projet',
+        icon: 'bx bx-list-ul',
+        class: '',
+        badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: [],
+      },
+      {
+        path: '/Projet/form',
+        title: 'Add Projet',
+        icon: 'bx bx-right-arrow-alt',
+        class: '',
+        badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: [],
+      },
+    ],
+  },
+  {
     path: '/equipes',
     title: 'Equipes',
     icon: 'bx bx-cookie',
@@ -75,7 +106,7 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
 
-  {
+  /*{
     path: '/univDepart',
     title: 'Uni & Dep',
     icon: 'bx bx-cookie',
@@ -969,5 +1000,5 @@ export const ROUTES: RouteInfo[] = [
     badgeClass: '',
     isExternalLink: true,
     submenu: [],
-  },
+  },*/
 ];
