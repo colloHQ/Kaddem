@@ -1,0 +1,62 @@
+<form #f="ngForm">
+  <h1>Nouveau Etudiant</h1>
+  <div class="mb-3">
+    <label class="form-label">Nom :</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="etudiant.nomEtudiant"
+      name="nomEtudiant"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Prenom :</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="etudiant.prenomEtudiant"
+      name="prenomEtudiant"
+    />
+  </div>
+  <label class="form-label">Option :</label>
+  <select
+    class="form-select mb-3"
+    aria-label="Default select example"
+    [(ngModel)]="etudiant.option"
+    name="option"
+  >
+    <option value=""></option>
+    <option value="Gamix">Gamix</option>
+    <option value="SE">SE</option>
+    <option value="SAE">SAE</option>
+    <option value="TWIN">TWIN</option>
+    <option value="NIDS">NIDS</option>
+  </select>
+  <!-- <label class="form-label">Departement :</label>
+  <select
+    class="form-select mb-3"
+    aria-label="Default select example"
+    [(ngModel)]="idDepart"
+    name="idDepart"
+  >
+    <option
+      *ngFor="let depart of listDepartement"
+      value={{depart.idDepartement}}
+    >
+      {{ depart.nomDepartement }}
+    </option> -->
+  <!-- </select> -->
+  <div class="row row-cols-auto g-3">
+    <div class="col">
+      <button type="button" class="btn btn-success px-5" (click)="add()">
+        SAVE
+      </button>
+    </div>
+
+    <div class="col">
+      <button type="reset" class="btn btn-warning px-5">Reset</button>
+    </div>
+    <div class="w-100 border-top"></div>
+    <div class="col"></div>
+  </div>
+</form>

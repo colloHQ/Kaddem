@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
     isExternalLink: false,
     submenu: [
       {
-        path: '/etudiants/list',
+        path: '/list',
         title: 'List Etudiants',
         icon: 'bx bx-right-arrow-alt',
         class: '',

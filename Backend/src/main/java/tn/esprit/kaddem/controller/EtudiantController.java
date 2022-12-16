@@ -16,6 +16,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/Etudiant")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class EtudiantController {
 
     IEtudiantServices etudiantServices;
@@ -38,7 +39,7 @@ public class EtudiantController {
 
     @DeleteMapping("/delete/{idEtudiant}")
     void deleteETudiant(@PathVariable("idEtudiant") Long idEtudiant) {
-        contratServices.onDeleteEtudiant(idEtudiant);
+        //contratServices.onDeleteEtudiant(idEtudiant);
         etudiantServices.deleteETudiant(idEtudiant);
 
     }

@@ -1,29 +1,53 @@
 <div>
-    <h1>{{title}} :</h1>
-    <button type="button" class="btn btn-primary add-btn" [routerLink]="['/univDepart/univ/create/']">Ajouter {{title}}</button>
+  <h1>{{ title }} :</h1>
+  <button
+    type="button"
+    class="btn btn-primary add-btn"
+    [routerLink]="['/univDepart/univ/create/']"
+  >
+    Ajouter {{ title }}
+  </button>
 </div>
 
 <div class="card">
-    <div class="card-body">
-        <table class="table table-bordered mb-0">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody >
-                <tr *ngFor="let univ of univs">
-                    <th scope="row">{{univ.idUniversite}}</th>
-                    <td>{{univ.nomUniversite}}</td>
-                    <td>
-                        <button type="button" class="btn btn-primary add-btn" [routerLink]="['/univDepart/univ/details/', univ.idUniversite]">Details</button>
-                        <button type="button" class="btn btn-warning add-btn" [routerLink]="['/univDepart/univ/update/', univ.idUniversite]">Update</button>
-                        <button type="button" class="btn btn-danger add-btn" (click)="deleteUniv(univ)">Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="card-body">
+    <table class="table table-bordered mb-0">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let univ of univs">
+          <th scope="row">{{ univ.idUniversite }}</th>
+          <td>{{ univ.nomUniversite }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary add-btn"
+              [routerLink]="['/univDepart/univ/details/', univ.idUniversite]"
+            >
+              Details
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning add-btn"
+              [routerLink]="['/univDepart/univ/update/', univ.idUniversite]"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger add-btn"
+              (click)="deleteUniv(univ)"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
