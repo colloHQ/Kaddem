@@ -1,7 +1,99 @@
 <div>
+  <!--Add Modal-->
+  <div class="modal fade" id="addModal" role="dialog">
+    <div class="modal-dialog-centered modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Ajouter Contrat</h4>
+        </div>
+
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="saveAdd(addForm)">
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Specialite :</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <select ngModel name="specialite" class="form-control">
+                  <option value="CLOUD">CLOUD</option>
+                  <option value="IA">IA</option>
+                  <option value="RESEAUX">RESEAUX</option>
+                  <option value="SECURITE">SECURITE</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Etudiant Id :</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  type="number"
+                  name="idEtudiant"
+                  ngModel
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Date debut :</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  ngModel
+                  name="startDate"
+                  type="Date"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Date fin :</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input
+                  ngModel
+                  name="endDate"
+                  type="Date"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Archive :</h6>
+              </div>
+              <div class="col-sm-9">
+                <input
+                  name="archive"
+                  ngModel
+                  type="checkbox"
+                  class="form-check-input"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">
+                Close
+              </button>
+              <input
+                type="submit"
+                class="btn btn-primary px-4"
+                value="Ajouter Contrat"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--Edit Modal -->
   <div class="modal fade" id="editModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog-centered modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -98,7 +190,7 @@
   <!-- end Modal -->
   <!--Delete Modal -->
   <div class="modal fade" id="deleteModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog-centered modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -134,19 +226,39 @@
         </div>
         <input
           type="button"
-          class="btn btn-primary"
+          class="btn btn-outline-secondary"
           (click)="sortByStartDate(contracts)"
           value="Sort"
         />
-        <select
-          class="btn btn-primary"
-          (change)="filterByArchive(isArchived)"
-          [(ngModel)]="isArchived"
-        >
-          <option value="all">All</option>
-          <option value="false">Valide</option>
-          <option value="true">Archived</option>
-        </select>
+        <div class="col-sm-1">
+          <select
+            class="form-select"
+            (change)="filterContracts()"
+            [(ngModel)]="isArchived"
+          >
+            <option value="all" selected>All</option>
+            <option value="false">Valide</option>
+            <option value="true">Archived</option>
+          </select>
+        </div>
+
+        <div class="col-sm-1">
+          <select
+            (change)="filterContracts()"
+            [(ngModel)]="specialite"
+            class="form-select"
+          >
+            <option value="all" selected>All</option>
+            <option value="CLOUD">Cloud</option>
+            <option value="IA">IA</option>
+            <option value="RESEAUX">Reseaux</option>
+            <option value="SECURITE">Securite</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" (click)="openAdd()">
+          <i class="fa-solid fa-plus"></i>
+          Ajouter Contrat
+        </button>
       </div>
       <div class="table-responsive">
         <table class="table mb-0">

@@ -43,7 +43,8 @@
               "src/assets/plugins/datatable/css/dataTables.bootstrap5.min.css",
               "src/assets/sass/app.scss",
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",

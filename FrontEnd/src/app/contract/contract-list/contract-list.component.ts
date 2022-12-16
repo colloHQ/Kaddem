@@ -14,9 +14,12 @@ import { Modal } from 'bootstrap';
 export class ContractListComponent implements OnInit {
   contracts: Contrat[];
   isArchived: string;
+  specialite: string;
   filtredContracts: Contrat[];
   editModal: Modal;
   deleteModal: Modal;
+  addModal: Modal;
+  newContract: Contrat;
   editContrat: Contrat = new Contrat(
     0,
     true,
@@ -37,15 +40,39 @@ export class ContractListComponent implements OnInit {
       (a: Contrat, b: Contrat) => a.idContrat - b.idContrat
     );
   }
-  filterByArchive(isArchived: string): Contrat[] {
-    const x = isArchived == 'true';
-    if (isArchived !== 'all')
+  filterContracts(): Contrat[] {
+    const x = this.isArchived == 'true';
+    if (this.isArchived !== 'all')
       this.filtredContracts = this.contracts.filter(
         (contrat) => contrat.archive === x
       );
     else this.filtredContracts = this.contracts;
+
     return this.filtredContracts;
   }
+  addContrat(form: NgForm) {
+    console.log(form.form.value);
+    this.newContract = new Contrat(
+      9,
+      form.form.value.archive,
+      new Date(form.form.value.startDate),
+      new Date(form.form.value.endDate),
+      form.form.value.specialite,
+      null
+    );
+    this.contractService.addContract(this.newContract).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err.message);
+      },
+      complete: () => {
+        console.log('complete :>');
+      },
+    });
+  }
+
   getAllContracts(): void {
     this.contractService.getAllContracts().subscribe({
       next: (response: Contrat[]) => {
@@ -90,6 +117,21 @@ export class ContractListComponent implements OnInit {
     console.log(form.form.value);
     this.editModal?.toggle();
   }
+  openAdd() {
+    this.addModal = new window.bootstrap.Modal(
+      document.getElementById('addModal'),
+      { keyboard: false }
+    );
+    this.addModal?.show();
+  }
+  closeAdd() {
+    this.addModal?.toggle();
+  }
+  saveAdd(form: NgForm) {
+    this.addContrat(form.form.value);
+    console.log(form.form.value);
+    this.addModal?.toggle();
+  }
   openDelete(id: number) {
     this.toDeleteId = id;
     this.deleteModal = new window.bootstrap.Modal(
@@ -102,9 +144,9 @@ export class ContractListComponent implements OnInit {
     this.deleteModal?.toggle();
   }
   saveDelete() {
-    this.filtredContracts = this.filtredContracts.filter((contrat) => {
-      contrat.idContrat != this.toDeleteId;
-    });
+    // this.filtredContracts = this.filtredContracts.filter((contrat) => {
+    //   contrat.idContrat != this.toDeleteId;
+    // });
     this.contractService.deleteContract(this.toDeleteId);
     this.deleteModal?.toggle();
   }
