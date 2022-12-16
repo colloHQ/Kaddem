@@ -1,11 +1,10 @@
 <div class="col">
   <div class="card">
-    <img src="assets/images/equipes/{{equipe.photos.slice(12)}}" class="card-img-top" alt="...">
-    <div class="">
-      <div class="position-absolute top-0 end-0 m-3 product-discount"><strong>{{equipe.niveau}}</strong></div>
+    <div class="card-title">
+      <div class="top-0 end-0 m-3 "><strong>{{equipe.nomEquipe}}</strong></div>
     </div>
     <div class="card-body">
-      <h6 class="card-title cursor-pointer">{{equipe.nomEquipe}}</h6>
+      <h6 class="card-title cursor-pointer">Niveau : {{equipe.niveau}}</h6>
       <div class="clearfix">
         <p class="mb-0 float-start"><strong>{{equipe.projets?.length}}</strong> Projets</p>
 
@@ -23,8 +22,9 @@
       </div>
       <div class="d-flex align-items-center mt-3 fs-6">
         <div class=" btn-group mb-0 ms-auto">
-          <button type="button" class="btn btn-outline-secondary">Details</button>
-          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+          <button type="button" class="btn btn-outline-secondary" (click)="delete(equipe)">Delete</button>
+          <button type="button" class="btn btn-outline-secondary" [routerLink]="['/equipes/update',equipe.idEquipe]">Update</button>
+          <!-- <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
             data-bs-toggle="dropdown" aria-expanded="false"> <span class="visually-hidden">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu">
@@ -32,7 +32,7 @@
             </li>
             <li><a class="dropdown-item" (click)="delete(equipe)">Delete</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
 

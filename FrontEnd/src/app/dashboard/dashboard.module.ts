@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +12,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { DigitalMarketingComponent } from './digital-marketing/digital-marketing.component';
 import { HumanResourcesComponent } from './human-resources/human-resources.component';
+import { AppModule } from '../app.module';
 
 
 @NgModule({

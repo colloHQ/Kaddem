@@ -1,0 +1,102 @@
+
+<h6 class="mb-0 text-uppercase">Liste Entreprise</h6>
+
+<hr/>
+<div class="position-relative">
+    <input type="text" class="form-control ps-5 radius-30 spacing" 
+    placeholder="Search Order" [(ngModel)]="term"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
+</div>
+<button type="button" class="btn btn-primary add-btn spacing" [routerLink]="['/Entreprise/add']">Add new</button>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered mb-0">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom </th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Secteur</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let entreprise of listEntreprise | filter: term"> 
+                    
+                        <td>{{entreprise.idEntreprise}}</td>
+                        <td>{{entreprise?.nomEntreprise}}</td>
+                        <td>{{entreprise.addresseEntreprise}}</td>
+                        <td>{{entreprise.numeroEntreprise}}</td>
+                        <td>{{entreprise.secteur}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning px-3 btn-spacing" [routerLink]="['/Entreprise/update',entreprise.idEntreprise]">Update</button>
+                            <button type="button" class="btn btn-danger px-3 btn-spacing" (click)="deleteEpse(entreprise)">Remove</button>
+                        </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+    </div>
+
+
+    
+
+    
+</div>
+
+
+<div class="card radius-10 w-100 spacing">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <h5 class="mb-0 font-weight-bold">Best Entreprise Of 2022</h5>
+            <p class="mb-0 ms-auto"><i class="bx bx-dots-horizontal-rounded float-right font-22"></i>
+            </p>
+        </div>
+        <div class="d-flex mt-2 mb-4">
+            <h2 class="mb-0 font-weight-bold">{{bestEnpse.nomEntreprise}}</h2>
+        </div>
+       
+        <div class="table-responsive mt-4">
+            <table class="table mb-0">
+                <tbody>
+                    <tr>
+                        <td class="px-0">
+                            <div class="d-flex align-items-center">
+                                <div><i class="bx bxs-checkbox me-2 font-22 text-primary"></i>
+                                </div>
+                                
+                                <div>Adrresse: {{bestEnpse.addresseEntreprise}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <div class="d-flex align-items-center">
+                                <div><i class="bx bxs-checkbox me-2 font-22 text-danger"></i>
+                                </div>
+                                <div>Numero: {{bestEnpse.numeroEntreprise}}</div>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <div class="d-flex align-items-center">
+                                <div><i class="bx bxs-checkbox me-2 font-22 text-info"></i>
+                                </div>
+                                <div>Secteur: {{bestEnpse.secteur}}</div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
