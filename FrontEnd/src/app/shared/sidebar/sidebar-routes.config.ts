@@ -178,7 +178,27 @@ export const ROUTES: RouteInfo[] = [
         isExternalLink: false, 
         submenu: [] 
       },
-    ],}
+    ],
+  },
+  { path: '/contract', 
+    title: 'Contrat', 
+    icon: 'bx bx-cookie', 
+    class: 'sub', 
+    badge: '', 
+    badgeClass: '', 
+    isExternalLink: false, 
+    submenu: [
+      { path: '/contract/list', 
+        title: 'List Contrats', 
+        icon: 'bx bx-right-arrow-alt', 
+        class: '', 
+        badge: '', 
+        badgeClass: '', 
+        isExternalLink: false, 
+        submenu: [] 
+      },
+    ],
+  },
 
 
   // {

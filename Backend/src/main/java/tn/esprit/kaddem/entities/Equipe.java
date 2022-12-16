@@ -18,7 +18,6 @@ import java.util.Set;
 @Table(name = "Equipe")
 public class Equipe implements Serializable {
 
-
     @ManyToOne
     Encadrant encadrant;
     @Id
@@ -39,7 +38,21 @@ public class Equipe implements Serializable {
 
     @Transient
     public String getPhotosImagePath() {
-        if (this.photos == null) return null;
+        if (this.photos == null)
+            return null;
+
+        return "/equipe-photos/" + idEquipe + "/" + photos;
+    }
+
+    /*--  Added  */
+    @Column(nullable = true, length = 64)
+    private String photos;
+    private float rating;
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (this.photos == null)
+            return null;
 
         return "/equipe-photos/" + idEquipe + "/" + photos;
     }
@@ -48,5 +61,8 @@ public class Equipe implements Serializable {
     @JsonIgnore
     private Set<Projet> projets;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipe")
+    @JsonIgnore
+    private Set<Projet> projets;
 
 }

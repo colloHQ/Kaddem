@@ -73,9 +73,9 @@
     </div>
   </div>
 </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 product-grid">
+<div class="row row-cols-2 product-grid">
 
-  <app-card-equipe [equipe]="equipe" *ngFor="let equipe of listEquipe"
+  <app-card-equipe *ngFor="let equipe of listEquipe " [equipe]="equipe" 
     (deleteMsg)="deleteEquipe(equipe)"></app-card-equipe>
 
 </div>

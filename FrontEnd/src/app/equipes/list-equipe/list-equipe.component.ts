@@ -15,6 +15,7 @@ export class ListEquipeComponent implements OnInit {
   ngOnInit(): void {
     this.equipesService.getAllEquipes().subscribe((data: Equipes[]) => {
       this.listEquipe = data;
+      console.log(this.listEquipe)
     });
   }
   deleteEquipe(equipe: Equipes) {

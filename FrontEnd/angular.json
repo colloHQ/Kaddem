@@ -42,7 +42,9 @@
               "node_modules/flatpickr/dist/flatpickr.min.css",
               "src/assets/plugins/datatable/css/dataTables.bootstrap5.min.css",
               "src/assets/sass/app.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",
@@ -63,7 +65,8 @@
               "src/assets/plugins/sparkline-charts/jquery.sparkline.min.js",
               "src/assets/plugins/jquery-knob/excanvas.js",
               "src/assets/plugins/jquery-knob/jquery.knob.js",
-              "src/assets/plugins/datatable/js/jquery.dataTables.min.js"
+              "src/assets/plugins/datatable/js/jquery.dataTables.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {

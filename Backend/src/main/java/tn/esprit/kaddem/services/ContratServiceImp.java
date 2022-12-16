@@ -141,7 +141,6 @@ public class ContratServiceImp implements IContratServices {
     private float calculCA(float CA, long nbOfMonths, Contrat ct) {
         if (ct.getSpecialite() == Specialite.IA) {
             CA +=  nbOfMonths * 300;
-
         } else if (ct.getSpecialite() == Specialite.RESEAUX) {
             CA += nbOfMonths * 350;
         } else if (ct.getSpecialite() == Specialite.CLOUD) {

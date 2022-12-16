@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface ContratRepository extends JpaRepository<Contrat, Integer> {
     @Modifying
-    @Query(value = "SELECT * FROM Contrat RIGHT JOIN Etudiant on contrat.etudiant_id_etudiant = Etudiant.id_etudiant WHERE Etudiant.id_etudiant = :etudiantId", nativeQuery = true)
+    @Query(value = "SELECT * FROM Contrat RIGHT JOIN Etudiant on contrat.etudiant_id_etudiant = Etudiant.id_etudiant WHERE Etudiant.id_etudiant = :etudiantId",
+            nativeQuery = true)
     List<Contrat> onDeleteEtudiant(@Param("etudiantId") Long etudiantId);
 
 }

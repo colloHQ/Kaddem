@@ -1,0 +1,97 @@
+<div class="card p-4">
+  <h5 class="card-title">Ajouter Contrat</h5>
+  <div class="card-body">
+    <form #addForm="ngForm" (ngSubmit)="addContrat(addForm)">
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Specialite :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <select ngModel name="specialite" class="form-control">
+            <option value="CLOUD">CLOUD</option>
+            <option value="IA">IA</option>
+            <option value="RESEAUX">RESEAUX</option>
+            <option value="SECURITE">SECURITE</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Etudiant Id :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <input type="number" name="idEtudiant" ngModel class="form-control" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Date debut :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <input ngModel name="startDate" type="Date" class="form-control" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Date fin :</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <input ngModel name="endDate" type="Date" class="form-control" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Archive :</h6>
+        </div>
+        <div class="col-sm-9">
+          <input
+            name="archive"
+            ngModel
+            type="checkbox"
+            class="form-check-input"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-9 text-secondary">
+          <input
+            type="submit"
+            class="btn btn-primary px-4"
+            value="Ajouter Contrat"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="card p-4">
+  <h5 class="card-title">Consulter Chiffre Affaire :</h5>
+  <div class="card-body">
+    <form
+      #GetChiffreAffaireForm="ngForm"
+      (ngSubmit)="getChiffreAffaire(GetChiffreAffaireForm)"
+    >
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Date Debut:</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <input type="date" name="startDate" ngModel class="form-control" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Date Fin:</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          <input type="date" name="endDate" ngModel class="form-control" />
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary px-4" value="Consulter" />
+    </form>
+    <figure class="text-center">
+      <h3>{{ chiffreAffaire }}</h3>
+    </figure>
+  </div>
+</div>
+<app-contract-list></app-contract-list>
