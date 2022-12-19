@@ -44,23 +44,6 @@ public class Equipe implements Serializable {
         return "/equipe-photos/" + idEquipe + "/" + photos;
     }
 
-    /*--  Added  */
-    @Column(nullable = true, length = 64)
-    private String photos;
-    private float rating;
-
-    @Transient
-    public String getPhotosImagePath() {
-        if (this.photos == null)
-            return null;
-
-        return "/equipe-photos/" + idEquipe + "/" + photos;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipe")
-    @JsonIgnore
-    private Set<Projet> projets;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipe")
     @JsonIgnore
     private Set<Projet> projets;
